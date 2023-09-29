@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import banner from '../public/images/banner.png'
 import Container from "./components/Container";
 import Footer from "./components/Footer";
+import {Button} from '@mui/material'
 
 
 export default function Page(): JSX.Element {
@@ -11,8 +12,9 @@ export default function Page(): JSX.Element {
       <Header />
       <Container>
         <section className="flex">
-          <div className="bg-amber-50 w-2/4 justify-center flex items-center p-8">
-            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, reprehenderit?</h1>
+          <div className="bg-amber-50 w-2/4 justify-center flex flex-col gap-6 p-8">
+            <h1 className="font-semibold text-4xl">Create your free account, quick and easy</h1>
+            <Button className="bg-primary text-black font-bold hover:bg-primary-hover w-1/3 py-2" variant="contained">Register free</Button>
           </div>
           <div className="w-2/4">
             <Image
