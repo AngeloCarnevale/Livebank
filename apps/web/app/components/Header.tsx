@@ -19,10 +19,8 @@ export default function Header(): JSX.Element {
                             />
                         </Link>
                     </li>
-                    <li>
-                        <Link href='/register'>
-                            Login
-                        </Link>
+                    <li className='bg-primary p-2 rounded-md font-semibold'>
+                        <button>Open my account</button>
                     </li>
                 </ul>
             </nav>
