@@ -47,14 +47,12 @@ export default function Page(): JSX.Element {
           />
         </section>
 
-        <section className="bg-primary flex justify-center py-10 gap-20">
+        <section className="bg-primary flex items-center justify-center py-10 gap-20">
           <Image
-            src={banner}
+            src={card}
             alt="Banner image"
-            width={200}
-            height={200}
           />
-          <h1 className="w-2/4 gap-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, possimus.</h1>
+          <h2 className="w-1/6 font-bold text-xl">Don't be left out, order your Livebank card now!</h2>
         </section>
       </Container>
       <Footer />

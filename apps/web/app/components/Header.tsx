@@ -15,11 +15,11 @@ export default function Header(): JSX.Element {
                                 src={logo}
                                 alt='Logo Livebank image'
                                 width={95}
-                                className='bg-primary rounded-lg'
+                                className='bg-primary rounded-lg hover:bg-primary-hover'
                             />
                         </Link>
                     </li>
-                    <li className='bg-primary p-2 rounded-md font-semibold'>
+                    <li className='bg-primary p-2 rounded-md font-semibold hover:bg-primary-hover'>
                         <button>Open my account</button>
                     </li>
                 </ul>
