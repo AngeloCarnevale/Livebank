@@ -28,7 +28,7 @@ This project has its own backend and frontend, in the next sections I will expla
 │  ┌──────────▼───────┴────────────┐                    │
 │  │                               │                    │
 │  │                               │                    │
-│  │       Python + Django         │         API        │
+│  │       Python + Django         │         Server     │
 │  │                               │                    │
 │  │                               │                    │
 │  └──────────┬───────▲────────────┘                    │

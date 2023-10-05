@@ -5,7 +5,6 @@ import card from '../public/images/card_gif.gif'
 import Container from "./components/Container";
 import Footer from "./components/Footer";
 import Card from "./components/Card";
-import { Button } from '@mui/material'
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import SecurityIcon from '@mui/icons-material/Security';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -19,7 +18,7 @@ export default function Page(): JSX.Element {
         <section className="flex">
           <div className="bg-amber-50 w-2/4 justify-center flex flex-col gap-6 p-16">
             <h1 className="font-semibold text-4xl w-3/5">Create your free account, quick and easy. Try now!</h1>
-            <Button className="bg-primary text-black font-bold hover:bg-primary-hover w-1/3 py-2" variant="contained">Register free</Button>
+            <button className="bg-primary text-black font-bold hover:bg-primary-hover w-1/3 py-2 rounded">Register Free</button>
           </div>
           <div className="w-2/4">
             <Image
@@ -52,7 +51,7 @@ export default function Page(): JSX.Element {
             src={card}
             alt="Banner image"
           />
-          <h2 className="w-1/6 font-bold text-xl">Don't be left out, order your Livebank card now!</h2>
+          <h2 className="w-fullfont-bold text-xl"><img src="https://readme-typing-svg.herokuapp.com?font=Helvetica&weight=700&size=28&pause=1000&color=000000&width=650&lines=+Manage+your+money%2C+finances+and+investments;+Simple%2C+practical+and+safe;Don't+be+left+out%2C+order+your+Livebank+card+now!" alt="Typing SVG" /></h2>
         </section>
       </Container>
       <Footer />
