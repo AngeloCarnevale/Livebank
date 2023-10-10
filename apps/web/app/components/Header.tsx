@@ -19,7 +19,7 @@ export default function Header(): JSX.Element {
                             />
                         </Link>
                     </li>
-                    <li className='bg-primary p-2 rounded-md font-semibold hover:bg-primary-hover'>
+                    <li className='bg-primary p-2 rounded-md font-semibold hover:bg-primary-hover cursor-pointer'>
                         <button>Open my account</button>
                     </li>
                 </ul>
