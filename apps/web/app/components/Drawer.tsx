@@ -6,10 +6,12 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    CircularProgress
+    CircularProgress,
+    useToast
 } from '@chakra-ui/react'
 import { Button, Input, FormLabel, FormControl } from "@chakra-ui/react"
 import { useDisclosure } from '@chakra-ui/react'
+import axios from 'axios'
 import React, { useState } from 'react'
 
 
@@ -20,11 +22,25 @@ export default function Register({text}: {text:string}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false)
+    const toast = useToast()
 
     const signUp = async () => {
+        const url = String(process.env.baseUrl)
+
         setLoading(true)
         try {
+            const userSignUp = axios.post(url+"/auth/", {
+                email: email,
+                password: password
+            })
             
+            toast({ 
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+            })
         } catch (e){
             console.log(e)
         }

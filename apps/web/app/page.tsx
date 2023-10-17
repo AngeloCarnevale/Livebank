@@ -12,15 +12,9 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import SecurityIcon from '@mui/icons-material/Security';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Register from "./components/Drawer";
-import { useEffect } from "react";
 
 
 export default function Page(): JSX.Element {
-
-  useEffect(()=> {
-    
-  })
-
 
   return (
     <>
