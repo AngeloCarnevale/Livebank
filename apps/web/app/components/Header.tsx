@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import logo from '../../public/images/logo.svg'
 import Link from 'next/link'
+import Register from './Drawer'
 
 
 export default function Header(): JSX.Element {
@@ -19,8 +20,8 @@ export default function Header(): JSX.Element {
                             />
                         </Link>
                     </li>
-                    <li className='bg-primary p-2 rounded-md font-semibold hover:bg-primary-hover cursor-pointer'>
-                        <button>Open my account</button>
+                    <li>
+                        <Register text='Open your account'/>
                     </li>
                 </ul>
             </nav>
