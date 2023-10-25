@@ -17,8 +17,9 @@ import React, { useState } from 'react'
 
 export default function Register({text}: {text:string}) {
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen ,onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false)
@@ -32,14 +33,26 @@ export default function Register({text}: {text:string}) {
             const userSignUp = axios.post(url+"/auth/", {
                 email: email,
                 password: password
-            })
-            
-            toast({ 
-                title: 'Account created.',
-                description: "We've created your account for you.",
-                status: 'success',
-                duration: 9000,
-                isClosable: true,
+            }).then(() => {
+                toast({ 
+                    title: 'Success',
+                    description: "We've created your account for you.",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                })
+                setName("")
+                setEmail("")
+                setPassword("")
+                onClose()
+            }).catch(error => {
+                toast({ 
+                    title: 'Error',
+                    description: "We've created your account for you.",
+                    status: 'error',
+                    duration: 9000,
+                    isClosable: true,
+                })
             })
         } catch (e){
             console.log(e)
@@ -51,7 +64,7 @@ export default function Register({text}: {text:string}) {
 
     return (
         <>
-            <Button className='bg-primary text-black font-bold hover:bg-primary-hover py-2 rounded-md w-full' ref={btnRef} colorScheme='yellow' onClick={onOpen}>
+            <Button className='bg-primary text-black font-bold hover:bg-primary-hover py-2 rounded-md w-full' colorScheme='yellow' onClick={onOpen}>
                 {text}
             </Button>
 
@@ -59,7 +72,6 @@ export default function Register({text}: {text:string}) {
                 isOpen={isOpen}
                 placement='right'
                 onClose={onClose}
-                finalFocusRef={btnRef}
             >
                 <DrawerOverlay />
                 <DrawerContent>
@@ -69,17 +81,17 @@ export default function Register({text}: {text:string}) {
                     <DrawerBody display={'flex'} flexDirection={'column'} gap={30}>
 
                         <FormControl variant="floating" id="first-name" isRequired>
-                            <Input placeholder="" />
+                            <Input placeholder="" onChange={(e)=> setName(e.target.value)} value={name}/>
                             <FormLabel>First name</FormLabel>
                         </FormControl>
 
                         <FormControl variant="floating" id="email" isRequired>
-                            <Input placeholder="" onChange={(e) => setEmail(e.target.value)} type='email' />
+                            <Input placeholder="" onChange={(e) => setEmail(e.target.value)} type='email' value={email}/>
                             <FormLabel>E-mail</FormLabel>
                         </FormControl>
 
                         <FormControl variant="floating" id="password" isRequired>
-                            <Input placeholder="" type={'password'} onChange={(e) => setPassword(e.target.value)} />
+                            <Input placeholder="" type={'password'} onChange={(e) => setPassword(e.target.value)} value={password}/>
                             <FormLabel>Senha</FormLabel>
                         </FormControl>
 
