@@ -31,13 +31,13 @@ export const styles = StyleSheet.create({
         backgroundColor: '#FCE38A',
         width: '100%',
         paddingVertical: 13,
-        borderRadius: 7,
+        borderRadius: 5,
     },
     loginButton: {
         backgroundColor: '#FFFFFF',
         width: '100%',
         padding: 10,
-        borderRadius: 7,
+        borderRadius: 5,
         paddingVertical: 13,
     },
     buttonText: {

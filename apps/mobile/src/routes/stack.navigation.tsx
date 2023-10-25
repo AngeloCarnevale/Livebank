@@ -9,7 +9,7 @@ export default function StackRoutes() {
     return (
         <Stack.Navigator initialRouteName="welcome">
             <Stack.Screen name="welcome" options={{headerShown: false}} component={Welcome}/>
-            <Stack.Screen name="register" component={Register} options={{headerTitle: " "}}/>
+            <Stack.Screen name="register" component={Register} options={{headerTitle: " ", headerStyle: {backgroundColor: "#0d0d0d"}, headerTintColor: 'white'}}/>
         </Stack.Navigator>
     )
     

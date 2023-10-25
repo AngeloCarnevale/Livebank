@@ -46,9 +46,18 @@ export default function Register({text}: {text:string}) {
                 setPassword("")
                 onClose()
             }).catch(error => {
-                toast({ 
-                    title: 'Error',
-                    description: "We've created your account for you.",
+                error.response.data.email ?
+                error.response.data.email.forEach((element: String) => {
+                    toast({ 
+                        title: "Unable to create your account",
+                        description: element,
+                        status: 'error',
+                        duration: 9000,
+                        isClosable: true,
+                    })
+                }) : toast({ 
+                    title: "Unable to create your account",
+                    description: error.response.statusText,
                     status: 'error',
                     duration: 9000,
                     isClosable: true,

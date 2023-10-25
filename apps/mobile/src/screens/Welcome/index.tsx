@@ -1,9 +1,12 @@
 import { View, Text, TouchableOpacity} from 'react-native'
 import { styles } from './styles'
+import { Props } from '../../types'
+import {API_URL, API_TOKEN} from "@env"
 
 
+export default function Welcome({navigation}: Props) {
 
-export default function Welcomet({navigation}) {
+  console.log(API_URL)
   return (
     <View style={styles.container}>
       <Text>Welcome</Text>
