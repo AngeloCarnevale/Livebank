@@ -1,12 +1,17 @@
 from django.urls import path, include
 from rest_framework import routers
 from authentication.api.viewsets import UserViewSet
+from bank_operations.api.viewsets import AccountViewSet, AddressViewSet, ContactsViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 router = routers.DefaultRouter()
 
-router.register('auth', viewset=UserViewSet, basename='User')
+router.register(r'auth/register', viewset=UserViewSet, basename='User')
+router.register(r'account', viewset=AccountViewSet, basename='Account')
+router.register(r'address', viewset=AddressViewSet, basename='Addres')
+router.register(r'contacts', viewset=ContactsViewSet, basename='Contacts')
+
 
 urlpatterns = [
     path('', include(router.urls)),

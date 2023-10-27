@@ -214,6 +214,25 @@ files = [
 ]
 
 [[package]]
+name = "ngrok"
+version = "0.12.0"
+description = "The ngrok Agent SDK for Python"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "ngrok-0.12.0-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:ed2a097e8285b5b24a53368dac4baa6548783af5f2e7075f62656fade2984ffd"},
+    {file = "ngrok-0.12.0-cp37-abi3-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl", hash = "sha256:8c8a021466f371ccf0e0bf36f01c8d3e69037f52a9b23226d9d5e50ef5439756"},
+    {file = "ngrok-0.12.0-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:9f166462b653618d200efbc97f0844addb8f0a0519a95dadba367865ec1c7c74"},
+    {file = "ngrok-0.12.0-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:651f5dcb665061b7ce36780c3763cf0ae66bece573aa24fc9a9e92b7bd700bc6"},
+    {file = "ngrok-0.12.0-cp37-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:20d3dc46e53cb663d09b6de26890ca0fcf9214b0a768a58e6c321e9b485ecf4e"},
+    {file = "ngrok-0.12.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:20a4d9cd6e800010d28cbb61496e0fc0c8a4b13bc4d639ac53cf68b66262733b"},
+    {file = "ngrok-0.12.0-cp37-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:c4a992fc3b28d0f1f80b84da60e367b817fd722b34860404d33526b0474242df"},
+    {file = "ngrok-0.12.0-cp37-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:4fc466c914fd6724461f4f55ce091ff3b4d4a9fea6ae17f3d7d1b9c10424f3ff"},
+    {file = "ngrok-0.12.0-cp37-abi3-win32.whl", hash = "sha256:0abc756360fa21d97df440a3f33ba24bce6e5449007b631c87cab41c5838db70"},
+    {file = "ngrok-0.12.0-cp37-abi3-win_amd64.whl", hash = "sha256:87e8316832e52e61bfbad9bc95da832ab936d47a96376abf8dbcd689aef2186f"},
+]
+
+[[package]]
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
@@ -296,4 +315,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8fc2b5569ade82892b88e1e7499eaeae4e762ff0331d45aead3d1b7f66854b01"
+content-hash = "e6e5093fac6b5722f953bf15f6242b7842d2fa542c1b2bf0dd76dc93042a9ee1"
