@@ -1,12 +1,10 @@
-import { View, Text, TouchableOpacity} from 'react-native'
-import { styles } from './styles'
-import { Props } from '../../types'
-import {API_URL, API_TOKEN} from "@env"
+import { View, Text, TouchableOpacity } from "react-native";
+import { styles } from "./styles";
+import { Props } from "../../types";
+import { API_URL, API_TOKEN } from "@env";
 
-
-export default function Welcome({navigation}: Props) {
-
-  console.log(API_URL)
+export default function Welcome({ navigation }: Props) {
+  console.log(API_URL);
   return (
     <View style={styles.container}>
       <Text>Welcome</Text>
@@ -17,14 +15,17 @@ export default function Welcome({navigation}: Props) {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.registerButton} onPress={()=> navigation.navigate("register")}>
-            <Text style={styles.buttonText}>CREATE YOUR FREE ACCOUNT</Text>
+        <TouchableOpacity
+          style={styles.registerButton}
+          onPress={() => navigation.navigate("register")}
+        >
+          <Text style={styles.buttonText}>CREATE YOUR FREE ACCOUNT</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.buttonText}>LOGIN INTO YOUT ACCOUNT</Text>
+          <Text style={styles.buttonText}>LOGIN INTO YOUT ACCOUNT</Text>
         </TouchableOpacity>
       </View>
     </View>
-  )
+  );
 }

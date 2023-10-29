@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 ---
+
 # Frontend
 
 The frontend, as shown in the diagram, was developed using the <a href="https://nextjs.org">Nextjs</a> framework, which is based on the <a href="https://react.dev">Reactjs</a> library for creating functional components and other features.

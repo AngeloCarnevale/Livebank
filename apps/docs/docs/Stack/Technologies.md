@@ -45,6 +45,6 @@ This project has its own backend and frontend, in the next sections I will expla
 └───────────────────────────────────────────────────────┘
 ```
 
-Frontend and backend communication is done through an API built in Python using Django Rest Framewrok.  
+Frontend and backend communication is done through an API built in Python using Django Rest Framewrok.
 
-*Obs:* There is a third layer that was not represented in the diagram above, which encompasses both the frontend and the backend, but you don't need to know that now. Let's continue.
+_Obs:_ There is a third layer that was not represented in the diagram above, which encompasses both the frontend and the backend, but you don't need to know that now. Let's continue.
