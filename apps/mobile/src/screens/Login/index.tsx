@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import LoginForm from "../../components/LoginForm";
 
+
 const Login = () => {
   return (
     <View style={styles.container}>

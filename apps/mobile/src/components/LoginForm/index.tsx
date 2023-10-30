@@ -5,11 +5,14 @@ import { useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
 import { NavigationProp } from "../../types";
+import { useAuthStore } from "../../stores/authStore";
+
 
 export default function LoginForm() {
   const navigation = useNavigation<NavigationProp>();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const setAccess = useAuthStore(state => state.setAccess)
 
   async function signUser() {
     const user = await axios
@@ -17,7 +20,11 @@ export default function LoginForm() {
         email: email,
         password: password,
       })
-      .then(() => Alert.alert("Login success"))
+      .then((response) => {
+        Alert.alert("Login success")
+        setAccess(response.data.access)
+        navigation.navigate("tabRoutes")
+      })
       .catch((e) => {
         console.log(e);
         Alert.alert("Login Error");
