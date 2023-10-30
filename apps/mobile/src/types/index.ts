@@ -1,6 +1,6 @@
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { NativeStackScreenProps, NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-type RootStackParamList = {
+export type RootStackParamList = {
   welcome: any;
   register: any;
   login: any;
@@ -9,4 +9,5 @@ type RootStackParamList = {
 
 export type Props = NativeStackScreenProps<RootStackParamList>;
 export type ProfileScreenNavigationProp = Props["navigation"];
+export type NavigationProp = NativeStackNavigationProp<RootStackParamList>
 

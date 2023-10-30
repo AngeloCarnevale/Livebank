@@ -6,7 +6,7 @@ import random
 class UserSerializer(ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ('id', 'email', 'password')
+        fields = ('id', 'email', 'password', 'name')
         extra_kwargs = {
             'password': {'write_only': True}
         }

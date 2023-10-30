@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
 import { styles } from "./styles";
 import CreateAccountForm from "../../components/CreateAccountForm";
-import { API_URL } from "@env";
+import {useNavigation} from '@react-navigation/native'
 
 export default function Register() {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
@@ -13,7 +14,7 @@ export default function Register() {
         </Text>
       </View>
 
-      <CreateAccountForm navigation={undefined} />
+      <CreateAccountForm />
     </View>
   );
 }

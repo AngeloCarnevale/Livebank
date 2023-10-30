@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
-    gap: 60,
+    gap: 90,
   },
   textContainer: {
     width: "100%",
