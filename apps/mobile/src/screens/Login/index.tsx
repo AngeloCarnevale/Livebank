@@ -1,12 +1,18 @@
-import { View, Text } from 'react-native'
-import {useState} from 'react'
+import { View, Text } from "react-native";
+import { styles } from "./styles";
+import LoginForm from "../../components/LoginForm";
 
 const Login = () => {
   return (
-    <View>
-      <Text>Login</Text>
-    </View>
-  )
-}
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.createAccount}>Sign into your account</Text>
+        <Text style={styles.smallText}>Log into your Livebank account</Text>
+      </View>
 
-export default Login
+      <LoginForm />
+    </View>
+  );
+};
+
+export default Login;

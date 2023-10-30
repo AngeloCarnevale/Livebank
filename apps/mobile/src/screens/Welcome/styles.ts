@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     bottom: 0,
     width: "90%",
     gap: 20,
-    paddingBottom: 40
+    paddingBottom: 40,
   },
   registerButton: {
     backgroundColor: "#FCE38A",

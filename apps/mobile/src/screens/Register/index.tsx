@@ -1,10 +1,10 @@
 import { View, Text } from "react-native";
 import { styles } from "./styles";
 import CreateAccountForm from "../../components/CreateAccountForm";
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from "@react-navigation/native";
 
 export default function Register() {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>

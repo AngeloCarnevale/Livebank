@@ -3,7 +3,6 @@ import { styles } from "./styles";
 import { Props } from "../../types";
 
 export default function Welcome({ navigation }: Props) {
-
   return (
     <View style={styles.container}>
       <Text>Welcome</Text>
@@ -21,8 +20,11 @@ export default function Welcome({ navigation }: Props) {
           <Text style={styles.buttonText}>CREATE YOUR FREE ACCOUNT</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.buttonText}>LOGIN INTO YOUT ACCOUNT</Text>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("login")}
+        >
+          <Text style={styles.buttonText}>LOGIN INTO YOUR ACCOUNT</Text>
         </TouchableOpacity>
       </View>
     </View>
