@@ -9,34 +9,47 @@ export const styles = StyleSheet.create({
   userName: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 16
+    fontSize: 20
   },
   salutationMsg: {
     color: '#d0d0d0',
-    fontSize: 12
+    fontSize: 12,
+    paddingTop: 5,
   },
   balanceContainer: {
     borderBottomColor: '#b0b0b0',
     borderWidth: 1,
-    paddingBottom: 20
+    paddingVertical: 20,
+    gap: 10
   },
   labelBalance: {
     color: '#c0c0c0'
   },
   balanceValue: {
     color: '#FFE071',
-    fontSize: 22
+    fontSize: 22,
+    fontWeight: '600'
   },
   buttonContainer: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'center',
-    gap:40
+    gap:60,
+    marginTop: 25
+  },
+  iconButton: {
+    backgroundColor: '#1B1B1B',
+    borderRadius: 15,
+    padding: 15,
   },
   button: {
-    backgroundColor: '#d0d0d0',
     display: 'flex',
     alignItems: 'center'
   },
+  buttonText: {
+    color: 'white',
+    fontWeight: '600',
+    marginTop: 10
+  }
 });

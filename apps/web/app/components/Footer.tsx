@@ -30,7 +30,7 @@ export default function Footer(): JSX.Element {
       </div>
       <div className="w-2/6">
         <div className="flex  flex-col justify-center items-center px-8 gap-4">
-          <h1 className="font-bold text-5xl w-2/4">Donwload Now!</h1>
+          <h1 className="font-bold text-5xl w-2/4">Download Now!</h1>
           <button>
             <Image
               src={badgeGooglePlay}

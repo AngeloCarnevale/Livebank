@@ -29,7 +29,8 @@ export default function Register({ text }: { text: string }) {
     setLoading(true);
     try {
       const userSignUp = axios
-        .post(url + "/auth/", {
+        .post(url + "/auth/register/", {
+          name: name,
           email: email,
           password: password,
         })

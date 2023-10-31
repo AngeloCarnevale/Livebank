@@ -22,19 +22,21 @@ const Home = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <View style={styles.button}>
-          <MaterialIcons name="attach-money" size={24} color="white" />
-          <Text>Fund transfer</Text>
+        <View>
+          <View style={styles.button}>
+            <MaterialIcons name="attach-money" size={30} color="white" style={styles.iconButton}/>
+            <Text style={styles.buttonText}>Fund transfer</Text>
+          </View>
         </View>
 
         <View style={styles.button}>
-          <AntDesign name="plus" size={24} color="white" />
-          <Text>Add money</Text>
+          <AntDesign name="plus" size={30} color="white" style={styles.iconButton}/>
+          <Text style={styles.buttonText}>Add money</Text>
         </View>
 
         <View style={styles.button}>
-          <Feather name="more-horizontal" size={24} color="white" />
-          <Text>More</Text>
+          <Feather name="more-horizontal" size={30} color="white" style={styles.iconButton}/>
+          <Text style={styles.buttonText}>More</Text>
         </View>
       </View>
     </View>

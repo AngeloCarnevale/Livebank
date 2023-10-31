@@ -2,7 +2,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Welcome from "../screens/Welcome";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
-import Home from "../screens/Home";
 import TabRoutes from "./tab.navigation";
 
 export default function StackRoutes() {
