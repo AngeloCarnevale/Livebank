@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { API_URI } from "@env";
+import { API_URL } from "@env";
 import axios from "axios";
 import { NavigationProp } from "../../types";
 import { useAuthStore } from "../../stores/authStore";
@@ -16,7 +16,7 @@ export default function LoginForm() {
 
   async function signUser() {
     const user = await axios
-      .post(API_URI + "/auth/login", {
+      .post(API_URL + "/auth/login", {
         email: email,
         password: password,
       })
