@@ -60,7 +60,11 @@ export default function TabRoutes() {
             component={Profile}
             options={{
                 tabBarIcon: ()=> <Feather name="user" size={25} color="white" />,
-                tabBarLabel: "Profile"
+                tabBarLabel: "Profile", 
+                headerStyle: {
+                    height: 50,
+                    backgroundColor: '#0d0d0d'
+                }
             }}
         />
     </Tab.Navigator>

@@ -1,12 +1,11 @@
 from rest_framework.serializers import ModelSerializer
 from authentication.models import UserModel
-import random
 
 
 class UserSerializer(ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ('id', 'email', 'password', 'name')
+        fields = ('__all__')
         extra_kwargs = {
             'password': {'write_only': True}
         }

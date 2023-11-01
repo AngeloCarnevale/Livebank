@@ -7,7 +7,11 @@ import {persist} from 'zustand/middleware'
 
 
 export type PersistType = typeof persist
-
+export interface IUser {
+  id: number
+  name: string
+  email: string
+}
 
 export type RootStackParamList = {
   welcome: any;
@@ -22,6 +26,8 @@ export type ProfileScreenNavigationProp = Props["navigation"];
 export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export type AuthStore = {
+  user: IUser;
+  setUser: (user: IUser) => void;
   access: string
   refresh: string
   setAccess: (access: string) => void

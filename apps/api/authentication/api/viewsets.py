@@ -23,8 +23,18 @@ class UserViewSet(ModelViewSet):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-            return serializer.data
+            return Response({"data": serializer.data})
 
         else:
-            return Response({"data": serializer})
+            raise "Error to create new user"
+
+    @action(methods=['POST'], detail=False)
+    def get(self, request):
+        user = self.request.user
+    
+        return Response({
+            "id": user.id,
+            "name":user.name,
+            "email": user.email
+            })
     

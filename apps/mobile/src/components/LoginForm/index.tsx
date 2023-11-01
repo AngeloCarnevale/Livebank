@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { API_URL } from "@env";
+import { API_URI } from "@env";
 import axios from "axios";
 import { NavigationProp } from "../../types";
 import { useAuthStore } from "../../stores/authStore";
@@ -16,17 +16,20 @@ export default function LoginForm() {
 
   async function signUser() {
     const user = await axios
-      .post(API_URL + "/auth/login", {
+      .post(API_URI + "/auth/login", {
         email: email,
         password: password,
       })
       .then((response) => {
         Alert.alert("Login success")
         setAccess(response.data.access)
+        setEmail("")
+        setPassword("")
         navigation.navigate("tabRoutes")
       })
       .catch((e) => {
-        console.log(e);
+        console.log(API_URI)
+        console.log(e)
         Alert.alert("Login Error");
       });
   }

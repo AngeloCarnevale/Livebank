@@ -1,10 +1,20 @@
 import { create } from "zustand";
-import type { AuthStore } from "../../types";
+import type { AuthStore, IUser } from "../../types";
+
 
 
 export const useAuthStore = create<AuthStore>()(((set) => ({
     access: '',
     refresh: '',
+    user: {
+        id: 0,
+        name: '',
+        email: ''
+    },
+
+    setUser: (user: IUser) => {
+        set(state => ({...state, user: user}))
+    },
 
     setAccess: (access) => {
         set(state => ({ ...state, access: access }))
