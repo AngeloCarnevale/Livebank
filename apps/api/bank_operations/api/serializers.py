@@ -5,7 +5,7 @@ from bank_operations.models import Account, Address, Contacts
 class AccountSerializer(ModelSerializer):
     class Meta:
         model = Account
-        fields = ('__all__')
+        fields = ("balance", "account_number")
         
 class AddressSerializer(ModelSerializer):
     class Meta:

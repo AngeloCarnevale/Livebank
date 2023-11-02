@@ -11,6 +11,7 @@ const Home = () => {
   const setUser = useAuthStore(state => state.setUser)
   const user = useAuthStore(state => state.user)
   const hour = new Date().getHours()
+  console.log(API_URI)
   
   const config ={
     headers: {Authorization: `Bearer ${access}`}
