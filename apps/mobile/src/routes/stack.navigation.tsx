@@ -3,6 +3,7 @@ import Welcome from "../screens/Welcome";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
 import TabRoutes from "./tab.navigation";
+import SendMoney from "../screens/SendMoney";
 
 export default function StackRoutes() {
   const Stack = createNativeStackNavigator();
@@ -24,9 +25,18 @@ export default function StackRoutes() {
       />
       <Stack.Screen name="register" component={Register} />
       <Stack.Screen name="login" component={Login} />
+      <Stack.Screen name="sendMoney" component={SendMoney} options={{
+        headerTitle: 'Send Money',
+        headerTintColor: 'white',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontWeight: '400',
+          fontSize: 13
+        }
+      }}/>
       <Stack.Screen
         name="tabRoutes"
-        component={TabRoutes}
+        component={TabRoutes} 
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

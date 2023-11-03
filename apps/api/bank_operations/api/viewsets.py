@@ -12,7 +12,9 @@ class AccountViewSet(ModelViewSet):
 class AddressViewSet(ModelViewSet):
     serializer_class = AddressSerializer
     queryset = Address.objects.all()
+    permission_classes = [IsAuthenticated]
     
 class ContactsViewSet(ModelViewSet):
     serializer_class = ContactsSerializer
     queryset = Contacts.objects.all()
+    permission_classes = [IsAuthenticated]

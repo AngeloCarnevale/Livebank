@@ -23,6 +23,7 @@ export type RootStackParamList = {
   login: any;
   createAccountForm: any;
   tabRoutes: any;
+  sendMoney: any;
 };
 
 export type Props = NativeStackScreenProps<RootStackParamList>;

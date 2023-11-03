@@ -8,16 +8,19 @@ import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
   const access = useAuthStore((state) => state.access);
+  const user = useAuthStore((state) => state.user)
   const navigation = useNavigation<NavigationProp>();
-  const signOut = () => {};
+  const signOut = () => {
+    
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
         <FontAwesome name="user-circle" size={70} color="#c0c0c0" />
         <View style={styles.textContainer}>
-          <Text style={styles.userName}>Ângelo Carnevale</Text>
-          <Text style={styles.email}>angelo@email.com</Text>
+          <Text style={styles.userName}>{user.name}</Text>
+          <Text style={styles.email}>{user.email}</Text>
         </View>
       </View>
 

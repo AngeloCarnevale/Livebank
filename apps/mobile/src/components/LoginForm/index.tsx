@@ -13,7 +13,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const setAccess = useAuthStore((state) => state.setAccess);
 
-  String(API_URL);
+  console.log(String(API_URL));
 
   async function signUser() {
     const user = await axios
