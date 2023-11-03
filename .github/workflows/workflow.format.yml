@@ -23,5 +23,5 @@ jobs:
 
       - name: run install and format
         run: |
-          pnpm install
+          pnpm install --no-frozen-lockfile
           pnpm format
