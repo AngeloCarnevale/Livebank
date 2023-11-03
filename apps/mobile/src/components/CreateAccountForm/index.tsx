@@ -32,8 +32,8 @@ export default function CreateAccountForm() {
         navigation.navigate("login");
       })
       .catch((e) => {
-        console.log(e)
-        console.log(API_URL)
+        console.log(e);
+        console.log(API_URL);
         e.response.status == 400
           ? Alert.alert("Fill in the fields correctly")
           : Alert.alert("Internal server error");

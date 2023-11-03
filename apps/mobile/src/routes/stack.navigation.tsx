@@ -8,28 +8,26 @@ export default function StackRoutes() {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator initialRouteName="welcome" screenOptions={{
-      headerTitle: " ",
-      headerStyle: { backgroundColor: "#0d0d0d" },
-      headerTintColor: "white",
-    }}>
+    <Stack.Navigator
+      initialRouteName="welcome"
+      screenOptions={{
+        headerTitle: " ",
+        headerStyle: { backgroundColor: "#0d0d0d" },
+        headerTintColor: "white",
+        headerShadowVisible: false,
+      }}
+    >
       <Stack.Screen
         name="welcome"
         options={{ headerShown: false }}
         component={Welcome}
       />
-      <Stack.Screen
-        name="register"
-        component={Register}
-      />
-      <Stack.Screen
-        name="login"
-        component={Login}
-      />
+      <Stack.Screen name="register" component={Register} />
+      <Stack.Screen name="login" component={Login} />
       <Stack.Screen
         name="tabRoutes"
         component={TabRoutes}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

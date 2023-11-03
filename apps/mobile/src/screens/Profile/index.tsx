@@ -1,18 +1,15 @@
-import { View, Text } from 'react-native'
-import { styles } from './styles'
-import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
-import ProfileOption from '../../components/ProfileOption'
-import { useAuthStore } from '../../stores/authStore'
+import { View, Text } from "react-native";
+import { styles } from "./styles";
+import { FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons";
+import ProfileOption from "../../components/ProfileOption";
+import { useAuthStore } from "../../stores/authStore";
 import { NavigationProp } from "../../types";
 import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
-
-  const access = useAuthStore(state => state.access)
+  const access = useAuthStore((state) => state.access);
   const navigation = useNavigation<NavigationProp>();
-  const signOut = () => {
-    
-  }
+  const signOut = () => {};
 
   return (
     <View style={styles.container}>
@@ -25,65 +22,76 @@ const Profile = () => {
       </View>
 
       <View style={styles.optionsContainer}>
-        <ProfileOption icon={
-          <FontAwesome5 
-          name="user" 
-          size={30} 
-          color="black"
-          style={{
-              backgroundColor: '#FCE38A', 
-              padding: 10,
-              borderRadius: 15
-          }}/>
-        } text='Profile Settings'
+        <ProfileOption
+          icon={
+            <FontAwesome5
+              name="user"
+              size={30}
+              color="black"
+              style={{
+                backgroundColor: "#FCE38A",
+                padding: 10,
+                borderRadius: 15,
+              }}
+            />
+          }
+          text="Profile Settings"
           onPress={signOut}
         />
 
-        <ProfileOption icon={
-          <Ionicons
-          name="ios-settings-outline" 
-          size={30} 
-          color="black"
-          style={{
-              backgroundColor: '#FCE38A', 
-              padding: 10,
-              borderRadius: 15
-          }}/>
-        } text='Settings'
-        onPress={signOut}
+        <ProfileOption
+          icon={
+            <Ionicons
+              name="ios-settings-outline"
+              size={30}
+              color="black"
+              style={{
+                backgroundColor: "#FCE38A",
+                padding: 10,
+                borderRadius: 15,
+              }}
+            />
+          }
+          text="Settings"
+          onPress={signOut}
         />
 
-        <ProfileOption icon={
-          <FontAwesome5 
-          name="headset" 
-          size={30} 
-          color="black"
-          style={{
-              backgroundColor: '#FCE38A', 
-              padding: 10,
-              borderRadius: 15
-          }}/>
-        } text='Support'
-        onPress={signOut}
+        <ProfileOption
+          icon={
+            <FontAwesome5
+              name="headset"
+              size={30}
+              color="black"
+              style={{
+                backgroundColor: "#FCE38A",
+                padding: 10,
+                borderRadius: 15,
+              }}
+            />
+          }
+          text="Support"
+          onPress={signOut}
         />
 
-        <ProfileOption icon={
-          <Ionicons
-          name="exit-outline" 
-          size={30} 
-          color="black"
-          style={{
-              backgroundColor: '#FCE38A', 
-              padding: 10,
-              borderRadius: 15
-          }}/>
-        } text='Sign out'
-        onPress={() => navigation.navigate('login')}
+        <ProfileOption
+          icon={
+            <Ionicons
+              name="exit-outline"
+              size={30}
+              color="black"
+              style={{
+                backgroundColor: "#FCE38A",
+                padding: 10,
+                borderRadius: 15,
+              }}
+            />
+          }
+          text="Sign out"
+          onPress={() => navigation.navigate("login")}
         />
-
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

@@ -2,35 +2,35 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { API_URI } from "@env";
+import { API_URL } from "@env";
 import axios from "axios";
 import { NavigationProp } from "../../types";
 import { useAuthStore } from "../../stores/authStore";
-
 
 export default function LoginForm() {
   const navigation = useNavigation<NavigationProp>();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const setAccess = useAuthStore(state => state.setAccess)
-  
+  const setAccess = useAuthStore((state) => state.setAccess);
+
+  String(API_URL);
 
   async function signUser() {
     const user = await axios
-      .post(API_URI + "/auth/login", {
+      .post(API_URL + "/auth/login", {
         email: email,
         password: password,
       })
       .then((response) => {
-        Alert.alert("Login success")
-        setAccess(response.data.access)
-        setEmail("")
-        setPassword("")
-        navigation.navigate("tabRoutes")
+        Alert.alert("Login success");
+        setAccess(response.data.access);
+        setEmail("");
+        setPassword("");
+        navigation.navigate("tabRoutes");
       })
       .catch((e) => {
-        console.log(API_URI)
-        console.log(e)
+        console.log(API_URL);
+        console.log(e);
         Alert.alert("Login Error");
       });
   }

@@ -1,12 +1,7 @@
-import { View, Text } from 'react-native'
+import { View, Text } from "react-native";
 
 const Card = () => {
-  return (
-    <View>
+  return <View></View>;
+};
 
-      
-    </View>
-  )
-}
-
-export default Card
+export default Card;

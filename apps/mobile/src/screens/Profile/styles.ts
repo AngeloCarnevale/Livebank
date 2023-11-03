@@ -8,33 +8,33 @@ export const styles = StyleSheet.create({
     gap: 50,
   },
   userContainer: {
-    backgroundColor: '#1B1B1B',
+    backgroundColor: "#1B1B1B",
     borderRadius: 20,
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     paddingVertical: 20,
-    gap: 15
+    gap: 15,
   },
-  userName:{
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 26
+  userName: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 26,
   },
-  email:{
-    color: '#c0c0c0',
-    fontSize: 18
+  email: {
+    color: "#c0c0c0",
+    fontSize: 18,
   },
   textContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    gap: 5
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: 5,
   },
   optionsContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 20
-  }
+    display: "flex",
+    flexDirection: "column",
+    gap: 20,
+  },
 });
