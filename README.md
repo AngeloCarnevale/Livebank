@@ -1,81 +1,124 @@
-# Turborepo starter
+<h1 align="center">
+  <br>
+  [Project's Logo]
+  <br>
+  Livebank
+  <br>
+</h1>
 
-This is an official starter Turborepo.
+<h4 align="center">A simple bank app full stack, to learning Django Rest Framework, React Native and Nextjs</h4>
 
-## Using this example
+<p align="center">
+  [Project's badges]
+</p>
 
-Run the following command:
+<p align="center">
+  <a href="#about">About</a> •
+  <a href="#key-features">Key Features</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#faq">FAQ</a> •
+  <a href="#roadmap">Roadmap</a> •
+  <a href="#support">Support</a> •
+  <a href="#license">License</a>
+</p>
 
-```sh
-npx create-turbo@latest
+![screenshot](screenshots/1.jpg)
+
+## About
+
+Simple overview of use/purpose.
+
+## Key Features
+
+- Web
+  - Register user
+- Mobile
+  - Send money
+  - Fund transfer
+  - Payment card
+  - Profile infos
+- Api
+  - Authentication
+  - Bank operations
+
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+
+- npm
+
+### Installing and Running
+
+Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
+
+```bash
+# Clone this repository
+$ git clone https://github.com/[your-github-user]/[your-repository-name]
+
+# Go into the repository
+$ cd [your-repository-name]
 ```
 
-## What's inside?
+## FAQ
 
-This Turborepo includes the following packages/apps:
+### Is it any good?
 
-### Apps and Packages
+[yes.](https://news.ycombinator.com/item?id=3067434)
 
-- `docs`: a [Docusaurus](https://docusaurus.io/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+## Roadmap
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- [x] Add this README.
+- [ ] Finish the unicorn project.
 
-### Utilities
+## Emailware
 
-This Turborepo has some additional tools already setup for you:
+[Project's name] is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <your-email@email.com> about anything you'd want to say about this software. I'd really appreciate it!
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## Contributing
 
-### Build
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-To build all apps and packages, run the following command:
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-```
-cd my-turborepo
-pnpm build
-```
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Develop
+## Support
 
-To develop all apps and packages, run the following command:
+You can also support us by:
 
-```
-cd my-turborepo
-pnpm dev
-```
+<p align="left">
+  <a href="https://www.buymeacoffee.com" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a> &nbsp &nbsp
+  <a href="https://www.patreon.com">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+  </a>
+</p>
 
-### Remote Caching
+## License
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+Your license here.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+## Acknowledgments
 
-```
-cd my-turborepo
-npx turbo login
-```
+Inspiration, code snippets, etc.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+- [Markdownify's README](https://github.com/amitmerchant1990/electron-markdownify#readme)
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## You may also like...
 
-```
-npx turbo link
-```
+List of apps or libs that do similar stuff as your project.
 
-## Useful Links
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [Simple README.md template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
 
-Learn more about the power of Turborepo:
+---
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+> GitHub [@AngeloCarnevale](https://github.com/AngeloCarnevale) &nbsp;&middot;&nbsp;
