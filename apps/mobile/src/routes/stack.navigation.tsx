@@ -4,6 +4,7 @@ import Register from "../screens/Register";
 import Login from "../screens/Login";
 import TabRoutes from "./tab.navigation";
 import SendMoney from "../screens/SendMoney";
+import ProfileSettings from "../screens/ProfileSettings";
 
 export default function StackRoutes() {
   const Stack = createNativeStackNavigator();
@@ -38,6 +39,18 @@ export default function StackRoutes() {
         name="tabRoutes"
         component={TabRoutes} 
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="profileSettings"
+        component={ProfileSettings} 
+        options={{
+          headerTitle: 'Profile Settings',
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            fontWeight: '400',
+            fontSize: 13
+          }
+        }}
       />
     </Stack.Navigator>
   );

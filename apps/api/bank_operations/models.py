@@ -21,6 +21,7 @@ class Contacts(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+
 class Account(models.Model):
     balance = models.DecimalField(decimal_places=2, null=0, max_digits=10)
     number = models.CharField(max_length=7)

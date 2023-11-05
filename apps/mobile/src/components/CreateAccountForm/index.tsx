@@ -13,6 +13,8 @@ export default function CreateAccountForm() {
   const [password, setPassword] = useState("");
   const [repeatPasswod, setRepeatPassword] = useState("");
 
+  console.log(API_URL)
+
   async function signUpUser() {
     if (password != repeatPasswod) {
       Alert.alert("Password don't match, try again");

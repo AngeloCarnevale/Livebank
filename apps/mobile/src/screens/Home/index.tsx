@@ -17,7 +17,7 @@ const Home = () => {
   const hour = new Date().getHours();
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
-  console.log(String(API_URL))
+  // String(API_URL)
 
   const config = {
     headers: {
@@ -46,7 +46,11 @@ const Home = () => {
   return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.userName}>{user.name}</Text>
+          <Text style={styles.userName}>
+            Hello, {" "}
+          {
+            String(user.name.split(" ",user.name.length)[0]) 
+          }</Text>
           <Text style={styles.salutationMsg}>
             {hour <= 12
               ? "Good morning"

@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert, ActivityIndicator } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
@@ -11,11 +11,13 @@ export default function LoginForm() {
   const navigation = useNavigation<NavigationProp>();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const setAccess = useAuthStore((state) => state.setAccess);
 
   console.log(String(API_URL));
 
   async function signUser() {
+    setLoading(true)
     const user = await axios
       .post(API_URL + "/auth/login", {
         email: email,
@@ -33,6 +35,8 @@ export default function LoginForm() {
         console.log(e);
         Alert.alert("Login Error");
       });
+    console.log(API_URL)
+    setLoading(false)
   }
 
   return (
@@ -59,9 +63,10 @@ export default function LoginForm() {
       </View>
 
       <View style={styles.bottom}>
-        <TouchableOpacity style={styles.buttonLogin} onPress={signUser}>
-          <Text style={styles.textButton}>LOG IN</Text>
-        </TouchableOpacity>
+        {loading ? <ActivityIndicator color={'#FFE071'} size={'large'}/> :
+          <TouchableOpacity style={styles.buttonLogin} onPress={signUser}>
+            <Text style={styles.textButton}>LOG IN</Text>
+          </TouchableOpacity>}
         <View>
           <TouchableOpacity onPress={() => navigation.navigate("register")}>
             <Text style={styles.textBottom}>

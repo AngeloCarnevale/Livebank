@@ -39,7 +39,7 @@ const Profile = () => {
             />
           }
           text="Profile Settings"
-          onPress={signOut}
+          onPress={()=> navigation.navigate("profileSettings")}
         />
 
         <ProfileOption
