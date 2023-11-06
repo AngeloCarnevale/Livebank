@@ -9,7 +9,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 router = routers.DefaultRouter()
 
 router.register(r'auth', viewset=UserViewSet, basename='User')
-router.register(r'account', viewset=AccountViewSet)
+router.register(r'account', viewset=AccountViewSet, basename='Account')
 router.register(r'address', viewset=AddressViewSet)
 router.register(r'contacts', viewset=ContactsViewSet)
 

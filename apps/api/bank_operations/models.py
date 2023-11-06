@@ -23,7 +23,7 @@ class Contacts(models.Model):
 
 
 class Account(models.Model):
-    balance = models.DecimalField(decimal_places=2, null=0, max_digits=10)
+    balance = models.DecimalField(decimal_places=2, null=0, max_digits=10, default=0.0)
     number = models.CharField(max_length=7)
     agency = models.CharField(max_length=4)
     account_number = models.ForeignKey('authentication.UserModel', on_delete=models.DO_NOTHING)
@@ -31,7 +31,7 @@ class Account(models.Model):
 
     def save(self, *args, **kwargs):
         self.number = f"{randint(10000,99999)}-{randint(0,9)}" 
-        self.agency = f"{randint(4000,9999)}"
+        self.agency = "0001"
 
         super(Account, self).save(*args, **kwargs)
 
