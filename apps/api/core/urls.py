@@ -3,6 +3,7 @@ from rest_framework import routers
 from authentication.api.viewsets import UserViewSet
 from bank_operations.api.viewsets import AccountViewSet, AddressViewSet, ContactsViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 
 router = routers.DefaultRouter()
@@ -16,4 +17,12 @@ urlpatterns = [
     path('', include(router.urls)),
     path('auth/login', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path("schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "docs/",
+        SpectacularSwaggerView.as_view(
+            template_name="swagger-ui.html", url_name="schema"
+        ),
+        name="swagger-ui",
+    ),
 ]

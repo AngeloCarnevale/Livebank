@@ -28,7 +28,6 @@ class UserViewSet(ModelViewSet):
             serializer.save()
             account = Account
             # account.account_number = request.data.id
-            print(request.data.id)
             
             
             return Response({"data": serializer.data})
