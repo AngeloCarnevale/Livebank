@@ -25,4 +25,3 @@ jobs:
         run: |
           pnpm install --no-frozen-lockfile
           pnpm format
-          pnpm build
