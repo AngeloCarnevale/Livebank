@@ -9,6 +9,9 @@ class AccountViewSet(ModelViewSet):
     queryset = Account.objects.all()
     permission_classes = [IsAuthenticated]
     
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+    
 class AddressViewSet(ModelViewSet):
     serializer_class = AddressSerializer
     queryset = Address.objects.all()
