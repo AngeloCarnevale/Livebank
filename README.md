@@ -49,7 +49,7 @@ This is an example of how you may give instructions on setting up your project l
 
 This is an example of how to list things you need to use the software and how to install them.
 
-- npm
+- pnpm
 
 ### Installing and Running
 
@@ -57,10 +57,23 @@ Below is an example of how you can instruct your audience on installing and sett
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/[your-github-user]/[your-repository-name]
+$ git clone https://github.com/AngeloCarnevale/Livebank
 
 # Go into the repository
-$ cd [your-repository-name]
+$ cd Livebank
+
+# Run
+$ pnpm i
+```
+
+#### Server
+
+```bash
+$ cd server
+$ poetry install
+$ poetry shell
+$ python manage.py migrate
+$ python manage.py runserver
 ```
 
 ## FAQ
