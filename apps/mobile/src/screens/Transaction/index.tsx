@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Transiction = () => {
+const Transaction = () => {
   return (
     <View>
       <Text>Transiction</Text>
@@ -9,4 +9,4 @@ const Transiction = () => {
   );
 };
 
-export default Transiction;
+export default Transaction;

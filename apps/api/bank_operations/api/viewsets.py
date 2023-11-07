@@ -66,6 +66,7 @@ class TransactionViewSet(ModelViewSet):
 class DepositViewSet(ModelViewSet):
     queryset = Deposit.objects.all()
     serializer_class = DepositSerializer
+    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         acc = Account.objects.get(pk = self.request.data['account'])

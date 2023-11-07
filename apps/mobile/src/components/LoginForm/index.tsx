@@ -14,7 +14,8 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const setAccess = useAuthStore((state) => state.setAccess);
 
-  console.log(String(API_URL));
+  String(API_URL)
+  console.log(API_URL);
 
   async function signUser() {
     setLoading(true)

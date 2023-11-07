@@ -6,9 +6,13 @@ export default function SendMoney() {
   return (
     <View style={styles.container}>
       <View>
-        <TextInput>
-            
-        </TextInput>
+        <Text style={styles.labelAccountNumber}>Enter with account number</Text>
+        <TextInput style={styles.textInput} />
+
+        <Text style={styles.amountLabel}>Enter your amount</Text>
+      </View>
+      <View>
+
       </View>
     </View>
   )

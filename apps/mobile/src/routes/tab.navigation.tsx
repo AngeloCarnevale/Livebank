@@ -1,6 +1,6 @@
 import Home from "../screens/Home";
 import Card from "../screens/Card";
-import Transiction from "../screens/Transiction";
+import Transaction from "../screens/Transaction";
 import Profile from "../screens/Profile";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
@@ -53,7 +53,7 @@ export default function TabRoutes() {
       />
       <Tab.Screen
         name="transiction"
-        component={Transiction}
+        component={Transaction}
         options={{
           tabBarIcon: () => (
             <MaterialCommunityIcons

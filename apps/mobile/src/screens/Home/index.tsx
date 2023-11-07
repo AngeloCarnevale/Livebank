@@ -17,8 +17,9 @@ const Home = () => {
   const hour = new Date().getHours();
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
-  // String(API_URL)
-
+  String(API_URL)
+  console.log(API_URL)
+  // console.log(account)
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,
@@ -34,6 +35,7 @@ const Home = () => {
       .then((data) => setUser(data.data));
   };
   const getCurrentAccount = async () => {
+    console.log("User id:", user.id)
     const account = await axios
       .get(API_URL + `/account/${user.id}`, config)
       .then((data) => setAccount(data.data));
