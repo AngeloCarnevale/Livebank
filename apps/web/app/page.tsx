@@ -27,7 +27,7 @@ export default function Page(): JSX.Element {
             </div>
           </div>
           <div className="w-2/4">
-            <Image src={banner} alt="Banner image" />
+            <Image src={banner} alt="Banner image" className="h-full"/>
           </div>
         </section>
 
@@ -50,12 +50,9 @@ export default function Page(): JSX.Element {
         </section>
 
         <section className="bg-primary flex items-center justify-center py-10 gap-20">
-          <Image src={card} alt="Banner image" />
-          <h2 className="w-fullfont-bold text-xl">
-            <img
-              src="https://readme-typing-svg.herokuapp.com?font=Helvetica&weight=700&size=28&pause=1000&color=000000&width=650&lines=+Manage+your+money%2C+finances+and+investments;+Simple%2C+practical+and+safe;Don't+be+left+out%2C+order+your+Livebank+card+now!"
-              alt="Typing SVG"
-            />
+          <Image src={card} alt="Card image" />
+          <h2 className="font-bold text-4xl">
+            Order your card now!
           </h2>
         </section>
       </Container>

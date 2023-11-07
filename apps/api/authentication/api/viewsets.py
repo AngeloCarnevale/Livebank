@@ -4,7 +4,6 @@ from .serializers import UserSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from bank_operations.models import Account
-from rest_framework.permissions import AllowAny
 
 
 class UserViewSet(ModelViewSet):
@@ -25,9 +24,11 @@ class UserViewSet(ModelViewSet):
         
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            # account.account_number = request.data.id
+            id = serializer.save()
             
+            account = Account()
+            account.account_number = id
+            account.save()
             
             return Response({"data": serializer.data})
 

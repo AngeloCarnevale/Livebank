@@ -34,6 +34,6 @@ class Account(models.Model):
         self.agency = "0001"
 
         super(Account, self).save(*args, **kwargs)
-
+    
     def __str__(self) -> str:
         return self.number

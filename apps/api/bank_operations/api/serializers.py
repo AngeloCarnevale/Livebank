@@ -6,6 +6,10 @@ class AccountSerializer(ModelSerializer):
     class Meta:
         model = Account
         fields = ("number", "account_number")
+        extra_kwargs = {
+            'number': {'read_only': True},
+            'account_number': {'read_only': True}
+        }
         
 class AddressSerializer(ModelSerializer):
     class Meta:
