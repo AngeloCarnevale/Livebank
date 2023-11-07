@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from bank_operations.models import Account, Address, Contacts
+from bank_operations.models import Account, Address, Contacts, Transaction, Deposit
 
 
 class AccountSerializer(ModelSerializer):
@@ -21,5 +21,14 @@ class ContactsSerializer(ModelSerializer):
         model = Contacts
         fields = ('__all__')
         
+class TransactionSerializer(ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ('__all__')
+        
+class DepositSerializer(ModelSerializer):
+    class Meta:
+        model = Deposit
+        fields = ('__all__')
 
         

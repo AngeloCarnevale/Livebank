@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from authentication.api.viewsets import UserViewSet
-from bank_operations.api.viewsets import AccountViewSet, AddressViewSet, ContactsViewSet
+from bank_operations.api.viewsets import AccountViewSet, AddressViewSet, ContactsViewSet, TransactionViewSet, DepositViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
@@ -12,6 +12,8 @@ router.register(r'auth', viewset=UserViewSet, basename='User')
 router.register(r'account', viewset=AccountViewSet, basename='Account')
 router.register(r'address', viewset=AddressViewSet)
 router.register(r'contacts', viewset=ContactsViewSet)
+router.register(r'transaction', viewset=TransactionViewSet)
+router.register(r'deposit', viewset=DepositViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
