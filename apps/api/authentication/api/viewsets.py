@@ -27,6 +27,7 @@ class UserViewSet(ModelViewSet):
             id = serializer.save()
             
             account = Account()
+        
             account.account_number = id
             account.save()
             

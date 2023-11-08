@@ -4,6 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
+from django.db import IntegrityError
 import decimal
 
 
@@ -51,6 +52,7 @@ class TransactionViewSet(ModelViewSet):
 
         if updateSender.get("balance") < 0:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+        
          
         serializerSender = AccountSerializer(sender, data = updateSender)
         serializerRecipient = AccountSerializer(recipiente, data = updateRecipient)

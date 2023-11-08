@@ -25,6 +25,7 @@ export type RootStackParamList = {
   tabRoutes: any;
   sendMoney: any;
   profileSettings: any;
+  addMoney: any;
 };
 
 export type Props = NativeStackScreenProps<RootStackParamList>;
@@ -42,5 +43,6 @@ export type AuthStore = {
 };
 
 export type UserStore = {
+  account: IAccount;
   setAccount: (account: IAccount) => void;
 };

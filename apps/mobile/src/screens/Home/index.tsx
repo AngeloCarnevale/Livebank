@@ -17,16 +17,15 @@ const Home = () => {
   const hour = new Date().getHours();
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
-  String(API_URL)
-  console.log(API_URL)
-  // console.log(account)
+
+  
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,
     },
   };
   const bodyParameters = {
-    key: "value",
+
   };
 
   const setUserInfos = async () => {
@@ -35,7 +34,7 @@ const Home = () => {
       .then((data) => setUser(data.data));
   };
   const getCurrentAccount = async () => {
-    console.log("User id:", user.id)
+
     const account = await axios
       .get(API_URL + `/account/${user.id}`, config)
       .then((data) => setAccount(data.data));
@@ -46,76 +45,79 @@ const Home = () => {
   }, []);
 
   return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.userName}>
-            Hello, {" "}
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.userName}>
+          Hello, {" "}
           {
-            String(user.name.split(" ",user.name.length)[0]) 
+            String(user.name.split(" ", user.name.length)[0])
           }</Text>
-          <Text style={styles.salutationMsg}>
-            {hour <= 12
-              ? "Good morning"
-              : hour <= 18
-                ? "Good afternoon"
-                : "Goog night"}
-          </Text>
-        </View>
-        <View style={styles.balanceContainer}>
-          <Text style={styles.labelBalance}>Total balance</Text>
-          <View style={styles.balanceAndEye}>
-            <TextInput
-              style={styles.balanceValue}
-              secureTextEntry={show}
-              editable={false}
-            >
-              R$ {account?.balance}
-            </TextInput>
-            <Entypo
-              onPress={() => setShow(!show)}
-              name="eye-with-line"
-              size={24}
-              style={{
-                color: "#c0c0c0",
-              }}
-            />
-          </View>
-        </View>
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate("sendMoney")}>
-            <View style={styles.button}>
-              <MaterialIcons
-                name="attach-money"
-                size={30}
-                color="white"
-                style={styles.iconButton}
-              />
-              <Text style={styles.buttonText}>Fund transfer</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button}>
-            <AntDesign
-              name="plus"
-              size={30}
-              color="white"
-              style={styles.iconButton}
-            />
-            <Text style={styles.buttonText}>Add money</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button}>
-            <Feather
-              name="more-horizontal"
-              size={30}
-              color="white"
-              style={styles.iconButton}
-            />
-            <Text style={styles.buttonText}>More</Text>
-          </TouchableOpacity>
+        <Text style={styles.salutationMsg}>
+          {hour <= 12
+            ? "Good morning"
+            : hour <= 18
+              ? "Good afternoon"
+              : "Goog night"}
+        </Text>
+      </View>
+      <View style={styles.balanceContainer}>
+        <Text style={styles.labelBalance}>Total balance</Text>
+        <View style={styles.balanceAndEye}>
+          <TextInput
+            style={styles.balanceValue}
+            secureTextEntry={show}
+            editable={false}
+          >
+            R$ {account?.balance}
+          </TextInput>
+          <Entypo
+            onPress={() => setShow(!show)}
+            name="eye-with-line"
+            size={24}
+            style={{
+              color: "#c0c0c0",
+            }}
+          />
         </View>
       </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate("sendMoney")}>
+          <View style={styles.button}>
+            <MaterialIcons
+              name="attach-money"
+              size={30}
+              color="white"
+              style={styles.iconButton}
+            />
+            <Text style={styles.buttonText}>Fund transfer</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("addMoney")}
+        >
+          <AntDesign
+            name="plus"
+            size={30}
+            color="white"
+            style={styles.iconButton}
+          />
+          <Text style={styles.buttonText}>Add money</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button}>
+          <Feather
+            name="more-horizontal"
+            size={30}
+            color="white"
+            style={styles.iconButton}
+          />
+          <Text style={styles.buttonText}>More</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 

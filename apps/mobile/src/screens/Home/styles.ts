@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: 25,
+    gap: 10,
     paddingLeft: 5,
   },
   buttonContainer: {
