@@ -17,8 +17,8 @@ const Home = () => {
   const hour = new Date().getHours();
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
-
   
+  // console.log(account)
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,
@@ -31,10 +31,11 @@ const Home = () => {
   const setUserInfos = async () => {
     const user = await axios
       .post(API_URL + "/auth/get/", bodyParameters, config)
-      .then((data) => setUser(data.data));
+      .then((data) => {
+        setUser(data.data)
+      });
   };
   const getCurrentAccount = async () => {
-
     const account = await axios
       .get(API_URL + `/account/${user.id}`, config)
       .then((data) => setAccount(data.data));
@@ -42,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     setUserInfos();
     getCurrentAccount();
-  }, []);
+  }, [account]);
 
   return (
     <View style={styles.container}>
