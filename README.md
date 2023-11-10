@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  [Project's Logo]
+  ![Project's Logo](/screenshots/logo.png)
   <br>
   Livebank
   <br>
