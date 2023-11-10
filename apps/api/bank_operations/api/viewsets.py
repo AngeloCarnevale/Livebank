@@ -1,10 +1,9 @@
-from bank_operations.models import Account, Address, Contacts, Transaction, Deposit
-from .serializers import AccountSerializer, AddressSerializer, ContactsSerializer,TransactionSerializer, DepositSerializer
+from bank_operations.models import Account, Address, Card, Contacts, Transaction, Deposit
+from .serializers import AccountSerializer,CardSerializer, AddressSerializer, ContactsSerializer,TransactionSerializer, DepositSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
-from django.db import IntegrityError
 import decimal
 
 
@@ -84,3 +83,7 @@ class DepositViewSet(ModelViewSet):
             return super().create(request, *args, **kwargs)
         else:
             return Response(status=status.HTTP_417_EXPECTATION_FAILED)
+        
+class CardViewSet(ModelViewSet):
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer

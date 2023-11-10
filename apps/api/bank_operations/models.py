@@ -50,3 +50,26 @@ class Deposit(models.Model):
     account = models.ForeignKey(Account, on_delete=models.DO_NOTHING, related_name="account")
     value = models.DecimalField(decimal_places=2, max_digits=10)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+class Card(models.Model):
+    BLOCKED = "B"
+    ACTIVE = "A"
+
+    STATE = [(BLOCKED, "Blocked"), (ACTIVE, "Active")]
+
+    number = models.CharField(max_length=20)
+    cvv = models.CharField(max_length=3)
+    expiration_date = models.CharField(max_length=5)
+    state = models.CharField(max_length=1, choices=STATE, default=ACTIVE)
+    client = models.ForeignKey('authentication.UserModel', on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        self.number = f"{randint(1000,9999)} {randint(1000,9999)} {randint(1000,9999)} {randint(1000,9999)}"
+        self.cvv = f"{randint(100,999)}"
+        self.expiration_date = f"{randint(1,12)}/{randint(27,32)}" 
+
+        super(Card, self).save(*args, **kwargs)
+    
+    def __str__(self) -> str:
+        return self.numero
