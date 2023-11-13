@@ -18,7 +18,7 @@ const Home = () => {
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
   
-  // console.log(account)
+  console.log(API_URL)
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,

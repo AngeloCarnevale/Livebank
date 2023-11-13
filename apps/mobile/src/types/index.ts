@@ -11,6 +11,10 @@ export interface IUser {
   name: string;
   email: string;
 }
+export type TransationBlockProps = {
+  value: string,
+  created_at: string
+}
 
 export interface IAccount {
   balance: string;

@@ -12,7 +12,7 @@ export default function SendMoney() {
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
   const navigation = useNavigation()
-
+  console.log(API_URL)
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,

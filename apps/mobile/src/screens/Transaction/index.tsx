@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react'
 import axios, { all } from "axios";
 import { API_URL } from "@env";
 import { useAuthStore } from "../../stores/authStore";
-import { IAccount } from "../../types";
+import TransactionBlock from "../../components/TransactionBlock";
+import type { TransationBlockProps } from "../../types";
 
 const Transaction = () => {
   const access = useAuthStore((state) => state.access)
-  const [allTransactions, setAllTransactions] = useState([])
+  const [allTransactions, setAllTransactions] = useState<TransationBlockProps []>([])
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,
@@ -21,15 +22,17 @@ const Transaction = () => {
       .catch(e => console.log(e))
   }
 
-  useEffect(()=> {
+  console.log(allTransactions)
+  useEffect(() => {
     transactions()
   }, [])
 
   return (
     <View style={styles.container}>
-      <Text style={{ color: 'white' }}>{ }</Text>
       <View>
-        
+        {allTransactions.map((transaction) => (
+          <TransactionBlock created_at={transaction.created_at} value={transaction.value} />
+        ))}
       </View>
     </View>
   );

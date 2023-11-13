@@ -15,6 +15,7 @@ const AddMoney = () => {
     const [account, setAccount] = useState<IAccount>()
     const navigation = useNavigation()
 
+    console.log(API_URL)
     const config = {
         headers: {
             Authorization: `Bearer ${access}`,

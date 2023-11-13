@@ -13,7 +13,6 @@ export default function CreateAccountForm() {
   const [password, setPassword] = useState("");
   const [repeatPasswod, setRepeatPassword] = useState("");
 
-  String(API_URL)
   console.log(API_URL)
 
   async function signUpUser() {

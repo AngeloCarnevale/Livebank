@@ -1,11 +1,16 @@
 import Routes from "./src/routes";
 import { StatusBar } from "react-native";
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 export default function App() {
+  const queryClient = new QueryClient()
+
   return (
     <>
-      <Routes />
-      <StatusBar />
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+        <StatusBar />
+      </QueryClientProvider>
     </>
   );
 }
