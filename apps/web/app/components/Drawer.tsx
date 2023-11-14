@@ -16,7 +16,6 @@ import React, { useState } from "react";
 
 export default function Register({ text }: { text: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +27,7 @@ export default function Register({ text }: { text: string }) {
 
     setLoading(true);
     try {
-      const userSignUp = axios
+      await axios
         .post(url + "/auth/register/", {
           name: name,
           email: email,

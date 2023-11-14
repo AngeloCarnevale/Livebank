@@ -1,21 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Header from "./components/Header";
 import banner from "../public/images/banner.png";
 import card from "../public/images/card_gif.gif";
-import Container from "./components/Container";
-import Footer from "./components/Footer";
-import Card from "./components/Card";
+import Container from "./components/container";
+import Card from "./components/card";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SecurityIcon from "@mui/icons-material/Security";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import Register from "./components/Drawer";
+import Register from "./components/drawer";
 
 export default function Page(): JSX.Element {
   return (
     <>
-      <Header />
       <Container>
         <section className="flex">
           <div className="bg-amber-50 w-2/4 justify-center flex flex-col gap-6 p-16">
@@ -56,7 +53,6 @@ export default function Page(): JSX.Element {
           </h2>
         </section>
       </Container>
-      <Footer />
     </>
   );
 }
