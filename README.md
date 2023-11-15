@@ -116,6 +116,8 @@ MIT
 
 Inspiration, code snippets, etc.
 
+Deploy turborepo on Vercel: https://vercel.com/docs/monorepos/turborepo
+
 - [Markdownify's README](https://github.com/amitmerchant1990/electron-markdownify#readme)
 
 ## You may also like...

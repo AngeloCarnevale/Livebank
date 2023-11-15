@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../../public/images/logo.svg";
 import Link from "next/link";
 import { Button } from "@chakra-ui/react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 
 
 export default function Header(): JSX.Element {
@@ -32,5 +32,6 @@ export default function Header(): JSX.Element {
         </ul>
       </nav>
     </header>
+
   );
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Drawer,
   DrawerBody,
@@ -75,7 +77,7 @@ export default function Register({ text }: { text: string }) {
   return (
     <>
       <Button
-        className="bg-primary text-black font-bold hover:bg-primary-hover py-2 rounded-md w-full"
+        className="bg-primary font-bold hover:bg-primary-hover py-2 rounded-md w-full"
         colorScheme="yellow"
         onClick={onOpen}
       >
