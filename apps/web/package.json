@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:web": "next build --scope=web --no-deps --includeDependencies",
     "start": "next start",
     "lint": "next lint"
   },
