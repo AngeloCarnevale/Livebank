@@ -10,9 +10,12 @@ import {
   DrawerCloseButton,
   CircularProgress,
   useToast,
+  Button,
+  Input,
+  FormLabel,
+  FormControl,
+  useDisclosure
 } from "@chakra-ui/react";
-import { Button, Input, FormLabel, FormControl } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
 
@@ -24,7 +27,7 @@ export default function Register({ text }: { text: string }) {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
 
-  const signUp = async () => {
+  const signUp = async ():Promise<void> => {
     const url = String(process.env.baseUrl);
 
     setLoading(true);
@@ -51,21 +54,21 @@ export default function Register({ text }: { text: string }) {
         .catch((error) => {
           error.response.data.email
             ? error.response.data.email.forEach((element: String) => {
-                toast({
-                  title: "Unable to create your account",
-                  description: element,
-                  status: "error",
-                  duration: 9000,
-                  isClosable: true,
-                });
-              })
-            : toast({
+              toast({
                 title: "Unable to create your account",
-                description: error.response.statusText,
+                description: element,
                 status: "error",
                 duration: 9000,
                 isClosable: true,
               });
+            })
+            : toast({
+              title: "Unable to create your account",
+              description: error.response.statusText,
+              status: "error",
+              duration: 9000,
+              isClosable: true,
+            });
         });
     } catch (e) {
       console.log(e);
@@ -103,7 +106,7 @@ export default function Register({ text }: { text: string }) {
             <FormControl variant="floating" id="email" isRequired>
               <Input
                 placeholder=""
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => void setEmail(e.target.value)}
                 type="email"
                 value={email}
               />
@@ -114,7 +117,7 @@ export default function Register({ text }: { text: string }) {
               <Input
                 placeholder=""
                 type={"password"}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => void setPassword(e.target.value)}
                 value={password}
               />
               <FormLabel>Senha</FormLabel>
@@ -142,7 +145,7 @@ export default function Register({ text }: { text: string }) {
                   Cancel
                 </Button>
                 <Button
-                  onClick={signUp}
+                  onClick={() => void signUp()}
                   className="bg-primary hover:bg-primary-hover"
                 >
                   Create

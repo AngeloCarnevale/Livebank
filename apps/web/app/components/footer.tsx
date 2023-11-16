@@ -3,6 +3,7 @@ import logo from "../../public/images/logo.svg";
 import badgeGooglePlay from "../../public/images/google-play-badge.png";
 import badgeAppStore from "../../public/images/app-store-badge.svg";
 
+
 export default function Footer(): JSX.Element {
   return (
     <footer className="bg-black text-white justify-between flex bottom-0 w-full py-16 px-24 max-sm:py-4 px-0 max-sm:flex-col max-sm:pb-10">
