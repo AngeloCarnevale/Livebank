@@ -89,7 +89,7 @@ export default function Register({ text }: { text: string }) {
 
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent className="rounded-l-xl">
           <DrawerCloseButton />
           <DrawerHeader>Create your account</DrawerHeader>
 
