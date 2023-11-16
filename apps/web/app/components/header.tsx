@@ -50,18 +50,18 @@ export default function Header() {
               </svg>
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-              <li className="border-b border-gray-400 my-8 uppercase">
+              <li className="my-8 uppercase">
                 <Link href={'/'} onClick={() => setIsNavOpen(false)}>
                   Home
                 </Link>
               </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
+              <li className="my-8 uppercase">
                 <Link href={'/about'} onClick={() => setIsNavOpen(false)}>
                   About
                 </Link>
               </li>
-              <li className="border-b border-gray-400 my-8 uppercase" onClick={() => setIsNavOpen(false)}>
-                <Register text="Register"/>
+              <li className="my-8 uppercase" onClick={() => setIsNavOpen(false)}>
+                <Register text="Open Account"/>
               </li>
             </ul>
           </div>
