@@ -1,0 +1,24 @@
+.gitignore
+
+# Docker
+.docker
+
+# Python
+
+core/__pycache__/
+core/*/__pycache__/
+core/*/*/__pycache__/
+core/*/*/*/__pycache__/
+
+bank_operations/__pycache__/
+bank_operations/*/__pycache__/
+bank_operations/*/*/__pycache__/
+bank_operations/*/*/*/__pycache__/
+
+authentication/__pycache__/
+authentication/*/__pycache__/
+authentication/*/*/__pycache__/
+authentication/*/*/*/__pycache__/
+
+.env/
+venv/
