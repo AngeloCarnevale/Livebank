@@ -7,10 +7,13 @@ import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SecurityIcon from "@mui/icons-material/Security";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import Register from "./components/drawer";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 export default function Page(): JSX.Element {
   return (
     <>
+    <Header />
       <Container>
         <section className="flex max-sm:w-full">
           <div className="bg-amber-50 w-2/4 justify-center flex flex-col gap-6 p-16 max-sm:w-full max-sm:p-8 max-sm:text-center max-sm:items-center">
@@ -51,6 +54,7 @@ export default function Page(): JSX.Element {
           </h2>
         </section>
       </Container>
+      <Footer/>
     </>
   );
 }

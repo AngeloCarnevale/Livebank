@@ -19,13 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <link rel="icon" type="image/svg+xml" href="/logo.png" />
-      <body className={inter.className}>
+      <body className={inter.className+' h-full'}>
         <ChakraProvider theme={theme}>
-          <Header />
-            {children}
-          <Footer />
+          {children}
         </ChakraProvider>
       </body>
     </html>
