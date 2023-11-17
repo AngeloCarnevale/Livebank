@@ -116,15 +116,14 @@ MIT
 
 Inspiration, code snippets, etc.
 
-Deploy turborepo on Vercel: https://vercel.com/docs/monorepos/turborepo
 
-- [Markdownify's README](https://github.com/amitmerchant1990/electron-markdownify#readme)
+- [Deploy Turborepo on Vercel](https://vercel.com/docs/monorepos/turborepo
+)
 
 ## You may also like...
 
-List of apps or libs that do similar stuff as your project.
 
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [Diego Bank](https://github.com/diego-bank)
 - [Simple README.md template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
 
 ---
