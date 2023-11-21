@@ -3,6 +3,7 @@ import { NextAuthOptions } from "next-auth";
 import  CredentialsProvider  from "next-auth/providers/credentials";
 import axios from "axios";
 
+
 const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
@@ -26,9 +27,19 @@ const authOptions: NextAuthOptions = {
     ],
     pages: {
         signIn: '/login'
+    },
+    callbacks: {
+        async jwt({token, user}) {
+            user && (token.user = user)
+            return token
+        },
+        async session({session, token}){
+            session = token.user as any
+            return session
+        }
     }
 }
 
 const handler = NextAuth(authOptions)
 
-export {handler as GET, handler as POST}
+export {handler as GET, handler as POST, authOptions}

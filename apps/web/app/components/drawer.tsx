@@ -14,7 +14,8 @@ import {
   Input,
   FormLabel,
   FormControl,
-  useDisclosure
+  useDisclosure,
+  Spinner
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
@@ -26,6 +27,7 @@ export default function Register({ text }: { text: string }) {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const toast = useToast();
+  
 
   const signUp = async ():Promise<void> => {
     const url = String(process.env.baseUrl);
@@ -133,11 +135,7 @@ export default function Register({ text }: { text: string }) {
                   width: "100%",
                 }}
               >
-                <CircularProgress
-                  size={30}
-                  color="yellow.400"
-                  thickness="12px"
-                />
+                <Spinner className="text-primary"/>
               </div>
             ) : (
               <>

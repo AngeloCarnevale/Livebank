@@ -1,1 +1,2 @@
-python manage.py runserver
+docker compose down; 
+docker compose up

@@ -1,14 +1,26 @@
 'use client'
 
-import { useState } from "react";
-import { Button } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import logo from '../../public/images/logo.svg'
 import Link from "next/link";
 import Image from "next/image";
 import Register from "./drawer";
+import { getSession } from "next-auth/react";
+import ButtonLogout from "./buttonLogout";
 
 export default function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [session, setSession]: any | null = useState()
+  
+  const getCurrentSession = async () => {
+    const session = await getSession()
+    .then(data => setSession(data?.access))
+    return session
+  }
+  useEffect(()=> {
+   getCurrentSession()
+  }, [])
+  
 
   return (
     <div className="flex items-center justify-between py-2 px-8 sticky top-0 bg-white w-full z-10 border-b border-slate-200">
@@ -66,7 +78,7 @@ export default function Header() {
             </ul>
           </div>
         </section>
-
+        {session ? 
         <ul className="DESKTOP-MENU hidden space-x-8  items-center lg:flex font-semibold">
           <li>
             <Link href={'/'} className="hover:underline">
@@ -79,9 +91,29 @@ export default function Header() {
             </Link>
           </li>
           <li>
+            <ButtonLogout/>
+          </li>
+        </ul> : <ul className="DESKTOP-MENU hidden space-x-8  items-center lg:flex font-semibold">
+          <li>
+            <Link href={'/'} className="hover:underline">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href={'/about'} className="hover:underline">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href={'/login'} className="underline hover:bg-yellow-100 p-3 rounded-lg">
+              Área do cliente
+            </Link>
+          </li>
+          <li>
             <Register text="Register" />
           </li>
-        </ul>
+        </ul>}
+        
       </nav>
       <style>{`
       .hideMenuNav {
