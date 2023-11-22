@@ -17,4 +17,7 @@ def main():
 
 
 if __name__ == '__main__':
+    import ngrok
+    listener = ngrok.connect("localhost:8000", authtoken_from_env=True)
+    print (f"Ingress established at {listener.url()}")
     main()

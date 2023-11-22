@@ -7,6 +7,7 @@ import { MaterialIcons, AntDesign, Feather, Entypo } from "@expo/vector-icons";
 import axios from "axios";
 import { API_URL } from "@env";
 import { IAccount, NavigationProp } from "../../types";
+import { api } from "../../services/axios";
 
 
 const Home = () => {
@@ -18,32 +19,31 @@ const Home = () => {
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
   
-  console.log(API_URL)
+  console.log(api.getUri())
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,
     },
   };
   const bodyParameters = {
-
+  
   };
 
   const setUserInfos = async () => {
-    const user = await axios
-      .post(API_URL + "/auth/get/", bodyParameters, config)
+    const user = await api.post("/auth/get/", bodyParameters, config)
       .then((data) => {
         setUser(data.data)
       });
   };
   const getCurrentAccount = async () => {
-    const account = await axios
-      .get(API_URL + `/account/${user.id}`, config)
+    const account = await api
+      .get(`/account/${user.id}`, config)
       .then((data) => setAccount(data.data));
   };
   useEffect(() => {
     setUserInfos();
     getCurrentAccount();
-  }, [account]);
+  }, []);
 
   return (
     <View style={styles.container}>

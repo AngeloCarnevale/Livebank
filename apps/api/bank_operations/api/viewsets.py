@@ -4,6 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
+from authentication.models import UserModel
 import decimal
 
 
@@ -34,8 +35,8 @@ class ContactsViewSet(ModelViewSet):
     
 class TransactionViewSet(ModelViewSet):
     serializer_class = TransactionSerializer
-    queryset = Transaction.objects.all()
     permission_classes = [IsAuthenticated]
+    queryset = Transaction.objects.all()
     
     def create(self, request, *args, **kwargs):
         recipiente = Account.objects.get(pk = self.request.data['recipient'])
@@ -63,6 +64,7 @@ class TransactionViewSet(ModelViewSet):
             return super().create(request, *args, **kwargs)
         else:
             return Response(status=status.HTTP_417_EXPECTATION_FAILED)
+
 
 class DepositViewSet(ModelViewSet):
     queryset = Deposit.objects.all()

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   textInput: {
-    backgroundColor: '#c0c0c0'
+    backgroundColor: '#a0a0a0'
   }, 
   labelAccountNumber: {
     color: '#fff',
@@ -26,8 +26,16 @@ export const styles = StyleSheet.create({
   },
   sendButton: {
     backgroundColor: '#FFE071',
+    paddingVertical: 10,
+    borderRadius: 5,
   }, 
   sendText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  mid: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   }
 });

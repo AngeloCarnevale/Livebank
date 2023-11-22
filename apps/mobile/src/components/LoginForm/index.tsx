@@ -2,8 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert, ActivityIndicator } fro
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { API_URL } from "@env";
-import axios from "axios";
+import { api } from "../../services/axios";
 import { NavigationProp } from "../../types";
 import { useAuthStore } from "../../stores/authStore";
 
@@ -14,13 +13,10 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const setAccess = useAuthStore((state) => state.setAccess);
 
-  String(API_URL)
-  console.log(API_URL)
-
   async function signUser() {
     setLoading(true)
-    const user = await axios
-      .post(API_URL + "/auth/login", {
+    const user = await api
+      .post("/auth/login", {
         email: email,
         password: password,
       })
@@ -32,11 +28,9 @@ export default function LoginForm() {
         navigation.navigate("tabRoutes");
       })
       .catch((e) => {
-        console.log(API_URL);
         console.log(e);
         Alert.alert("Login Error");
       });
-    console.log(API_URL)
     setLoading(false)
   }
 

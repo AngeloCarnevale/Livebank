@@ -63,6 +63,15 @@ class TransactionViewSet(ModelViewSet):
             return super().create(request, *args, **kwargs)
         else:
             return Response(status=status.HTTP_417_EXPECTATION_FAILED)
+        
+    def list(self, request, *args, **kwargs):
+        user_id = self.request.user.id
+        
+        
+        print(user_id)
+        return Response("Test")
+        
+        
 
 class DepositViewSet(ModelViewSet):
     queryset = Deposit.objects.all()

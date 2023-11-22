@@ -2,8 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import { useState } from 'react'
 import { styles } from './styles'
-import axios from 'axios'
-import { API_URL } from '@env'
+import { api } from '../../services/axios';
 import { useAuthStore } from '../../stores/authStore'
 
 export default function SendMoney() {
@@ -12,7 +11,7 @@ export default function SendMoney() {
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
   const navigation = useNavigation()
-  console.log(API_URL)
+  
   const config = {
     headers: {
       Authorization: `Bearer ${access}`,
@@ -25,7 +24,7 @@ export default function SendMoney() {
   };
 
   const sendMoney = async () => {
-    const transaction = await axios.post((API_URL)+'/transaction/', bodyParameters, config)
+    const transaction = await api.post('/transaction/', bodyParameters, config)
     .then((data)=> {
       Alert.alert("Success")
       navigation.goBack()
@@ -38,9 +37,10 @@ export default function SendMoney() {
         <Text style={styles.labelAccountNumber}>Enter with account number</Text>
         <TextInput style={styles.textInput} onChangeText={(e) => setRecipient(e)}/>
       </View>
-      <View>
+      <View style={styles.mid}>
+        <Text style={styles.amountLabel}>Enter with amount</Text>
         <TextInput 
-          placeholder='Enter your amount' 
+          placeholder='R$' 
           placeholderTextColor={'white'}
           style={styles.amountInput}
           onChangeText={(e)=> setAmount(e)}

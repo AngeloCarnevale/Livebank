@@ -6,6 +6,7 @@ import { API_URL } from '@env'
 import { useAuthStore } from '../../stores/authStore'
 import { IAccount } from '../../types'
 import { useNavigation } from "@react-navigation/native";
+import { api } from '../../services/axios'
 
 
 const AddMoney = () => {
@@ -15,7 +16,6 @@ const AddMoney = () => {
     const [account, setAccount] = useState<IAccount>()
     const navigation = useNavigation()
 
-    console.log(API_URL)
     const config = {
         headers: {
             Authorization: `Bearer ${access}`,
@@ -27,8 +27,7 @@ const AddMoney = () => {
     };
 
     const getAccount = async () => {
-        const account = await axios
-            .get(API_URL + `/account/${user.id}`, config)
+        const account = await api.get(`/account/${user.id}`, config)
             .then((data) => setAccount(data.data));
     }
     useEffect(() => {
@@ -36,11 +35,10 @@ const AddMoney = () => {
     }, [])
 
     const addMoney = async () => {
-        const deposit = axios.post(API_URL + '/deposit/', bodyParameters, config)
+        const deposit = api.post('/deposit/', bodyParameters, config)
             .then(() => {
                 Alert.alert("Success")
                 setValue("")
-                
             })
             .catch(e => Alert.alert(e))
     }

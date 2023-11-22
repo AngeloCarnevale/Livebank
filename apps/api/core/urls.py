@@ -12,7 +12,7 @@ router.register(r'auth', viewset=UserViewSet, basename='User')
 router.register(r'account', viewset=AccountViewSet, basename='Account')
 router.register(r'address', viewset=AddressViewSet)
 router.register(r'contacts', viewset=ContactsViewSet)
-router.register(r'transaction', viewset=TransactionViewSet)
+router.register(r'transaction', viewset=TransactionViewSet, basename='Transaction')
 router.register(r'deposit', viewset=DepositViewSet)
 router.register(r'card', viewset=CardViewSet)
 

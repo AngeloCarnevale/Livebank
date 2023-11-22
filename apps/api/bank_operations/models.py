@@ -41,9 +41,7 @@ class Account(models.Model):
 class Transaction(models.Model):
     value = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
-    recipient = models.ForeignKey(
-    Account, on_delete=models.DO_NOTHING, related_name="recipient"
-        )
+    recipient = models.ForeignKey(Account, on_delete=models.DO_NOTHING, related_name="recipient")
     sender = models.ForeignKey(Account, on_delete=models.DO_NOTHING, related_name="sender")
     
 class Deposit(models.Model):

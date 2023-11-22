@@ -50,3 +50,8 @@ export type UserStore = {
   account: IAccount;
   setAccount: (account: IAccount) => void;
 };
+
+export interface ITransaction {
+  created_at: string;
+  value: string;
+}
