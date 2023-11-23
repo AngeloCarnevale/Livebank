@@ -5,11 +5,12 @@ from bank_operations.models import Account, Address, Contacts,Card, Transaction,
 class AccountSerializer(ModelSerializer):
     class Meta:
         model = Account
-        fields = ("number", "account_number", "balance")
+        fields = ("number", "account_number", "balance", "agency")
         extra_kwargs = {
             'number': {'read_only': True},
             'account_number': {'read_only': True},
-            'balance': {'read_only': True}
+            'balance': {'read_only': True},
+            'agency': {'read_only': True}
         }
         
 class AddressSerializer(ModelSerializer):

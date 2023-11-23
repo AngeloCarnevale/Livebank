@@ -5,4 +5,16 @@ declare module 'next-auth' {
         refresh: string
         access: string
     }
+    interface IAccount {
+        account_number: number
+        balance: string
+        number: string
+        agency: string
+    }
+    interface IUser {
+        id: number
+        name: string
+        email: string
+        image: string
+    }
 }

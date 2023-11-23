@@ -1,37 +1,51 @@
 'use client'
 
-import {signIn} from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import Logo from '../../../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Spinner, useToast } from '@chakra-ui/react'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const toast = useToast()
 
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    try {
-        const response = await signIn('credentials', {
-          redirect: false,
-          email,
-          password
-        })
-        console.log(response)
+    setLoading(true)
 
-        if(!response?.error){
-          router.refresh()
-          router.push('/profile')
-        }
-        return response
-        
-    }catch{
-      console.log("error")
+    try {
+      const response = await signIn('credentials', {
+        redirect: false,
+        email,
+        password
+      }).catch((error) => {
+        console.log("erro: ", error)
+      })
+
+      if (!response?.error) {
+        toast({
+          status: 'success',
+          title: "Login success",
+          position: 'bottom'
+        })
+        router.refresh()
+        router.push('/profile')
+      }
+      return response
+
+    }
+    catch{
+      console.log("Erro")
+    }
+    finally {
+      setLoading(false)
     }
   }
 
@@ -39,7 +53,7 @@ export default function Login() {
     <div className="min-h-full flex items-center">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col items-center">
-          <Image 
+          <Image
             src={Logo}
             alt='Logo image'
             width={200}
@@ -63,7 +77,7 @@ export default function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                   autoComplete="email"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 px-2"
                 />
               </div>
             </div>
@@ -82,18 +96,25 @@ export default function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-c-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 px-2"
                 />
               </div>
             </div>
 
-            <div>
-              <button
-                type='submit'
-                className="flex w-full justify-center rounded-md bg-primary hover:bg-primary-hover px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign in
-              </button>
+            <div className='flex justify-center'>
+              {loading ?
+                <Spinner
+                  size='lg'
+                  speed='0.45s'
+                  className='text-primary' /> :
+                <button
+                  type='submit'
+                  className="flex w-full justify-center rounded-md bg-primary hover:bg-primary-hover px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-indigo-500"
+                >
+                  Sign in
+                </button>
+              }
+
             </div>
           </form>
 
