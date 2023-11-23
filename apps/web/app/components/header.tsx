@@ -106,7 +106,7 @@ export default function Header() {
           </li>
           <li>
             <Link href={'/login'} className="underline hover:bg-yellow-100 p-3 rounded-lg">
-              Área do cliente
+              Customer's area
             </Link>
           </li>
           <li>

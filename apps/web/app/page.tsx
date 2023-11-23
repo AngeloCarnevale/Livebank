@@ -9,8 +9,16 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import Register from "./components/drawer";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { redirect } from "next/navigation"
+import { getServerSession } from "next-auth";
 
-export default function Page(): JSX.Element {
+export default async function Page() {
+  const session = await getServerSession()
+
+  if(session){
+    redirect('/profile')
+  }
+
   return (
     <>
     <Header />
