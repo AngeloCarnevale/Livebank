@@ -40,4 +40,4 @@ class UserViewSet(ModelViewSet):
     def get(self, request):
         user = self.request.user
 
-        return Response({"id": user.id, "name": user.name, "email": user.email})
+        return Response({"id": user.id, "name": user.name, "email": user.email, "image": str(user.image)})

@@ -4,10 +4,9 @@ from uuid import uuid4
 
 
 def upload_image_profile(instance, filename):
-    return f"{instance.id}-{filename}"
+    return f"{uuid4}-{filename}"
 
 class UserModel(AbstractUser):
-    id = models.UUIDField(primary_key=True, editable=False, default=uuid4)
     name = models.CharField(max_length=150)
     email = models.EmailField(max_length=150, unique=True)
     password = models.CharField(max_length=100)

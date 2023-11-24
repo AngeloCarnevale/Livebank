@@ -14,10 +14,10 @@ const authOptions: NextAuthOptions = {
                 password: { label: 'Password', type: 'password' }
             },
             async authorize(credentials) {
-                const user = await axios.post('http://localhost:8000/auth/login', {
+                const user = await axios.post('http://127.0.0.1:8000/auth/login', {
                     email: credentials?.email,
                     password: credentials?.password
-                }).then(data => { return data.data })
+                }).then(data => { return data.data }).catch((e) => console.log(e))
 
                 if (user == null) {
                     return null

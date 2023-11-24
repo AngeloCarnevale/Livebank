@@ -12,9 +12,25 @@ export default function Profile() {
   const [data, setData] = useState<IAccount>()
   const [user, setUser] = useState<IUser>()
 
-  async function getUser() {
+  console.log(user?.image)
+  async function handleUploadPic(event) {
     const token = await getSession()
 
+    const header = {
+      Authorization: "Bearer " + token?.access
+    }
+
+    const selectedFile = event.target.files[0]
+    const formData = new FormData()
+    formData.append("image", selectedFile)
+
+    api.patch(`/auth/${user?.id}/`, formData, { headers: header })
+      .then((response) => console.log(response.data))
+      .catch(error => console.log(error))
+  }
+
+  async function getUser() {
+    const token = await getSession()
     const config = {
       headers: {
         Authorization: `Bearer ${token?.access}`,
@@ -37,15 +53,25 @@ export default function Profile() {
     <>
       <Header />
       <div className='flex flex-col gap-10 justify-center items-center h-[60%]'>
-      {!user?.image ? 
+        {!user?.image ?
+
           <div className='rounded-full border-2  p-10'>
-            <FaUser color='gray' size={30}/>
-          </div> : 
-          <div>
-            <Image src={user.image} alt='User profile image'/>
+            <FaUser color='gray' size={30} />
+          </div>
+
+          :
+          <div className='border border-full'>
+            <img src={user.image} alt='Profile image' />
+            {/* <Image src={user.image} alt='User profile image' width={100} height={100} /> */}
           </div>}
+        <input
+          type='file'
+          id='file'
+          accept='.jpg, .jpeg, .png'
+          onChange={handleUploadPic}
+        />
         <div className='flex gap-4'>
-         
+
 
           <div className='flex flex-col gap-4'>
             <div className='flex flex-col'>
