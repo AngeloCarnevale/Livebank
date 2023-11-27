@@ -2,9 +2,8 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { API_URL } from "@env";
-import axios from "axios";
 import { NavigationProp } from "../../types";
+import { api } from "../../services/axios";
 
 export default function CreateAccountForm() {
   const navigation = useNavigation<NavigationProp>();
@@ -13,15 +12,12 @@ export default function CreateAccountForm() {
   const [password, setPassword] = useState("");
   const [repeatPasswod, setRepeatPassword] = useState("");
 
-  // String(API_URL)
-  console.log(API_URL)
-
   async function signUpUser() {
     if (password != repeatPasswod) {
       Alert.alert("Password don't match, try again");
     }
-    const user = await axios
-      .post(API_URL + "/auth/register/", {
+    const user = await api
+      .post("/auth/register/", {
         name: name,
         email: email,
         password: password,
@@ -36,7 +32,6 @@ export default function CreateAccountForm() {
       })
       .catch((e) => {
         console.log(e);
-        console.log(API_URL);
         e.response.status == 400
           ? Alert.alert("Fill in the fields correctly")
           : Alert.alert("Internal server error");

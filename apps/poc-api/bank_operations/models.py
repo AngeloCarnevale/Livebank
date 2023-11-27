@@ -60,7 +60,7 @@ class Card(models.Model):
     number = models.CharField(max_length=20)
     cvv = models.CharField(max_length=3)
     expiration_date = models.CharField(max_length=5)
-    state = models.CharField(max_length=1, choices=STATE, default=ACTIVE)
+    state = models.CharField(max_length=1, choices=STATE, default=BLOCKED)
     client = models.ForeignKey('authentication.UserModel', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -58,11 +58,9 @@ export default function Profile() {
           <div className='rounded-full border-2  p-10'>
             <FaUser color='gray' size={30} />
           </div>
-
           :
           <div className='border border-full'>
             <img src={user.image} alt='Profile image' />
-            {/* <Image src={user.image} alt='User profile image' width={100} height={100} /> */}
           </div>}
         <input
           type='file'
@@ -71,8 +69,6 @@ export default function Profile() {
           onChange={handleUploadPic}
         />
         <div className='flex gap-4'>
-
-
           <div className='flex flex-col gap-4'>
             <div className='flex flex-col'>
               <label className='font-semibold'>Agency</label>

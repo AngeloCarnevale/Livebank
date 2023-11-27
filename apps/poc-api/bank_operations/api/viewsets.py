@@ -99,6 +99,11 @@ class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
     permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        queryset = self.queryset
+        return queryset.filter(client_id=(self.request.user.id))
+    
 
 class LoanViewSet(ModelViewSet):
     queryset = Loan.objects.all()

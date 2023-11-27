@@ -4,13 +4,18 @@ import { useNavigation } from "@react-navigation/native";
 import { useAuthStore } from "../../stores/authStore";
 import { styles } from "./styles";
 import { MaterialIcons, AntDesign, Feather, Entypo } from "@expo/vector-icons";
-import axios from "axios";
-import { API_URL } from "@env";
 import { IAccount, NavigationProp } from "../../types";
 import { api } from "../../services/axios";
-
+import { useQuery } from "@tanstack/react-query";
+import type { IUser } from "../../types";
 
 const Home = () => {
+  
+  const {data: IUser, isLoading} = useQuery({
+    queryFn: () => getCurrentAccount(),
+    queryKey: ["account"]
+  })
+  
   const [account, setAccount] = useState<IAccount>();
   const access = useAuthStore((state) => state.access);
   const setUser = useAuthStore((state) => state.setUser);
@@ -19,31 +24,29 @@ const Home = () => {
   const [show, setShow] = useState(true);
   const navigation = useNavigation<NavigationProp>()
   
-  console.log(api.getUri())
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
-  const bodyParameters = {
-  
-  };
+  api.defaults.headers['Authorization'] = `Bearer ${access}`
 
   const setUserInfos = async () => {
-    const user = await api.post("/auth/get/", bodyParameters, config)
+    const user = await api.post("/auth/get/")
       .then((data) => {
         setUser(data.data)
       });
   };
   const getCurrentAccount = async () => {
     const account = await api
-      .get(`/account/${user.id}`, config)
+      .get(`/account/${user.id}`)
       .then((data) => setAccount(data.data));
   };
   useEffect(() => {
     setUserInfos();
     getCurrentAccount();
   }, []);
+
+  isLoading && (
+    <View>
+      <Text>Loading...</Text>
+    </View>
+  )
 
   return (
     <View style={styles.container}>

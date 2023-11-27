@@ -1,6 +1,6 @@
 import Routes from "./src/routes";
 import { StatusBar } from "react-native";
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export default function App() {
   const queryClient = new QueryClient()
