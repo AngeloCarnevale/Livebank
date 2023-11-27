@@ -73,3 +73,25 @@ class Card(models.Model):
     
     def __str__(self) -> str:
         return self.numero
+
+class Loan(models.Model):
+    APPROVED = "A"
+    DENIED = "D"
+    PAYING = "P"
+    WAITING = "W"
+
+    CONDITION = [
+        (APPROVED, "Approved"),
+        (DENIED, "Denied"),
+        (PAYING, "Paying"),
+        (WAITING, "Waiting"),
+    ]
+
+    value = models.DecimalField(decimal_places=2, max_digits=2)
+    value_fees = models.DecimalField(decimal_places=2, max_digits=2)
+    date = models.DateTimeField(auto_now_add=True)
+    fee = models.DecimalField(decimal_places=2, max_digits=2)
+    expiration = models.DateField()
+    condition = models.CharField(max_length=1, choices=CONDITION, default=WAITING)
+    account = models.ForeignKey(Account, related_name="Loan", on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True)

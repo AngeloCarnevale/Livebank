@@ -1,5 +1,5 @@
-from bank_operations.models import Account, Address, Card, Contacts, Transaction, Deposit
-from .serializers import AccountSerializer,CardSerializer, AddressSerializer, ContactsSerializer,TransactionSerializer, DepositSerializer
+from bank_operations.models import Account, Address, Card, Contacts, Transaction, Deposit, Loan
+from .serializers import AccountSerializer,CardSerializer, AddressSerializer, ContactsSerializer,TransactionSerializer, DepositSerializer, LoanSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -96,3 +96,9 @@ class DepositViewSet(ModelViewSet):
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
+    permission_classes = [IsAuthenticated]
+
+class LoanViewSet(ModelViewSet):
+    queryset = Loan.objects.all()
+    serializer_class = LoanSerializer
+    permission_classes = [IsAuthenticated]
