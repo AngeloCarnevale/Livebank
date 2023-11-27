@@ -75,22 +75,22 @@ class Card(models.Model):
         return self.numero
 
 class Loan(models.Model):
+    WAITING = "W"
     APPROVED = "A"
     DENIED = "D"
     PAYING = "P"
-    WAITING = "W"
 
     CONDITION = [
+        (WAITING, "Waiting"),
         (APPROVED, "Approved"),
         (DENIED, "Denied"),
         (PAYING, "Paying"),
-        (WAITING, "Waiting"),
     ]
 
-    value = models.DecimalField(decimal_places=2, max_digits=2)
-    value_fees = models.DecimalField(decimal_places=2, max_digits=2)
+    value = models.DecimalField(decimal_places=2, max_digits=7)
+    value_fees = models.DecimalField(decimal_places=2, max_digits=7)
     date = models.DateTimeField(auto_now_add=True)
-    fee = models.DecimalField(decimal_places=2, max_digits=2)
+    fee = models.IntegerField()
     expiration = models.DateField()
     condition = models.CharField(max_length=1, choices=CONDITION, default=WAITING)
     account = models.ForeignKey(Account, related_name="Loan", on_delete=models.PROTECT)

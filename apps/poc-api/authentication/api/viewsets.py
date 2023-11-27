@@ -36,8 +36,8 @@ class UserViewSet(ModelViewSet):
         else:
             raise "Error to create new user"
 
-    @action(methods=["POST"], detail=False)
-    def get(self, request):
-        user = self.request.user
+    # @action(methods=["POST"], detail=False)
+    # def get(self, request):
+    #     user = self.request.user
 
-        return Response({"id": user.id, "name": user.name, "email": user.email, "image": str(user.image)})
+    #     return Response({"id": user.id, "name": user.name, "email": user.email, "image": str(user.image)})

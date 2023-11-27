@@ -20,7 +20,9 @@ class AccountViewSet(ModelViewSet):
         if account.is_valid(raise_exception=True):
             account.account_number = request.user.id
             account.save()
-        return Response("Success")
+            return Response("Success to create your account", status=status.HTTP_201_CREATED)
+        
+        return Response("Error to create your account", status=status.HTTP_400_BAD_REQUEST)
     
 class AddressViewSet(ModelViewSet):
     serializer_class = AddressSerializer
@@ -50,7 +52,7 @@ class TransactionViewSet(ModelViewSet):
         updateSender = {'balance':sender.balance, 'number':sender.number,'agency':sender.agency,'account_number': sender.account_number.pk}
 
         if updateSender.get("balance") < 0:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response("You don't have money",status=status.HTTP_400_BAD_REQUEST)
         
          
         serializerSender = AccountSerializer(sender, data = updateSender)
@@ -102,3 +104,23 @@ class LoanViewSet(ModelViewSet):
     queryset = Loan.objects.all()
     serializer_class = LoanSerializer
     permission_classes = [IsAuthenticated]
+
+    def create(self, request, *args, **kwargs):
+        loan = LoanSerializer(data=request.data)
+        
+        if loan.is_valid(raise_exception=True):
+            loan.account = request.user.id
+            
+            value = loan.validated_data.get('value')
+            
+            if float(value) <= 0:
+                return Response("Invalid value", status=status.HTTP_400_BAD_REQUEST)
+        
+            if float(value) > 1000.0:
+                return Response("You can't request a loan with this value, limit: R$ 1000", status=status.HTTP_400_BAD_REQUEST)
+        
+            loan.save()
+            return Response("Request loan success", status=status.HTTP_201_CREATED)
+        
+        return Response("Error to request your loan", status=status.HTTP_400_BAD_REQUEST)
+        
