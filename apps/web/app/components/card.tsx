@@ -1,3 +1,9 @@
+
+/**
+ * Landing page card component
+ * @params title, content, icon
+ * @returns ReactNode
+ */
 export default function Card({ title, content, icon }) {
   return (
     <div className="bg-white p-2 flex w-full text-center flex-col justify-center w-1/4 items-center gap-4">

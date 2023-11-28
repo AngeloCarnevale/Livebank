@@ -7,12 +7,17 @@ import Image from "next/image";
 import Register from "./drawer";
 import { getSession } from "next-auth/react";
 import ButtonLogout from "./buttonLogout";
+import { Session } from "next-auth";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [session, setSession]: any | null = useState()
+  const [session, setSession]: Session | any | undefined= useState()
   
-  const getCurrentSession = async () => {
+  /**
+   * Get current user session
+   * @returns User session
+   */
+  const getCurrentSession = async ():Promise<Session> => {
     const session = await getSession()
     .then(data => setSession(data?.access))
     return session

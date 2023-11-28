@@ -38,8 +38,13 @@ class UserViewSet(ModelViewSet):
         else:
             raise "Error to create new user"
 
-    @action(methods=["POST"], detail=False)
-    def get(self, request):
-        user = self.request.user
-
-        return Response({"id": user.id, "name": user.name, "email": user.email, "image": str(user.image)})
+    def list(self, request):
+        queryset = self.queryset
+        user = queryset.filter(id=self.request.user.id).first()
+        return Response({
+            "email":user.email, 
+            "id":user.id, 
+            "name":user.name,
+            "image": str(user.image)
+            })
+    

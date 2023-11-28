@@ -8,11 +8,19 @@ import decimal
 
 
 class AccountViewSet(ModelViewSet):
+    queryset = Account.objects.all()
     serializer_class = AccountSerializer
     permission_classes = [IsAuthenticated]
     
-    def get_queryset(self):
-        return Account.objects.all()
+    def list(self, request):
+        queryset = self.queryset
+        account = queryset.filter(account_number_id=self.request.user.id).first()
+        return Response({
+            "number": account.number,
+            "balance": account.balance,
+            "agency": account.agency,
+            "account_number": account.account_number_id
+            })
     
     def create(self, request, *args, **kwargs):
         account = AccountSerializer(data=request.data)

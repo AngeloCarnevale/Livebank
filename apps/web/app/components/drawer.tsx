@@ -17,8 +17,8 @@ import {
   useDisclosure,
   Spinner
 } from "@chakra-ui/react";
-import axios from "axios";
 import React, { useState } from "react";
+import { api } from "../../services/api";
 
 export default function Register({ text }: { text: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,12 +30,11 @@ export default function Register({ text }: { text: string }) {
   
 
   const signUp = async ():Promise<void> => {
-    const url = String(process.env.baseUrl);
 
     setLoading(true);
     try {
-      await axios
-        .post(url + "/auth/register/", {
+      await api
+        .post("/auth/register/", {
           name: name,
           email: email,
           password: password,

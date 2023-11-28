@@ -4,7 +4,12 @@ import { useRouter } from 'next/navigation'
 
 export default function ButtonLogout() {
     const router = useRouter()
+
+    /**
+    * Log out a logged in user
+    */
     async function logout() {
+        
         await signOut({
             redirect: false
         })
