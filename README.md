@@ -88,11 +88,10 @@ $ python manage.py runserver
 ## Roadmap
 
 - [x] Add this README.
-- [ ] Finish the unicorn project.
+- [x] Finish Web
+- [x] Finish Api
+- [ ] Finish Mobile
 
-## Emailware
-
-[Project's name] is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <your-email@email.com> about anything you'd want to say about this software. I'd really appreciate it!
 
 ## Contributing
 
@@ -117,14 +116,13 @@ MIT
 Inspiration, code snippets, etc.
 
 
-- [Deploy Turborepo on Vercel](https://vercel.com/docs/monorepos/turborepo
-)
+- [Deploy Turborepo on Vercel](https://vercel.com/docs/monorepos/turborepo)
 
 ## You may also like...
 
 
 - [Diego Bank](https://github.com/diego-bank)
-- [Simple README.md template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+- 
 
 ---
 

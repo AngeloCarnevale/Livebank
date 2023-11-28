@@ -74,12 +74,18 @@ class TransactionViewSet(ModelViewSet):
         else:
             return Response(status=status.HTTP_417_EXPECTATION_FAILED)
         
-    def list(self, request, *args, **kwargs):
-        user_id = self.request.user.id
+    def get_queryset(self):
+        """Pegar contas para usuários autenticados"""
+        queryset = self.queryset
+        result1 = queryset.filter(
+            sender=Account.objects.all().filter(account_number=self.request.user.id).order_by("created_at").distinct().first()
+        ).order_by("-created_at").distinct()
+        result2 = queryset.filter(
+            recipient=Account.objects.all().filter(account_number=self.request.user.id).order_by("created_at").distinct().first()
+        ).order_by("-created_at").distinct()
         
         
-        print(user_id)
-        return Response("Test")
+        return result1.union(result2, all=True).order_by("-created_at")
         
         
 

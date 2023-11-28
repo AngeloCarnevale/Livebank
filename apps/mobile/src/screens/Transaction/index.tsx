@@ -9,16 +9,10 @@ import type { TransationBlockProps } from "../../types";
 import { api } from "../../services/axios";
 
 const Transaction = () => {
-  const access = useAuthStore((state) => state.access)
   const [allTransactions, setAllTransactions] = useState<TransationBlockProps[]>([])
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
 
   const transactions = async () => {
-    const transactions = await api.get('/transaction/', config)
+    const transactions = await api.get('/transaction/')
       .then(data => setAllTransactions(data.data))
       .catch(e => console.log(e))
   }

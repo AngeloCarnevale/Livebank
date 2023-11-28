@@ -56,7 +56,7 @@ export default function Profile() {
           </div>
           :
           <div className='border rounded-full'>
-            <img src={`http://localhost:8000/media/${user.image}`} alt='Profile image' className='rounded-full' width={150}/>
+            <img src={user.image} alt='Profile image' className='rounded-full' width={150}/>
           </div>}
         <input
           type='file'

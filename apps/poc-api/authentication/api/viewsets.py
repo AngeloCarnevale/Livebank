@@ -45,6 +45,6 @@ class UserViewSet(ModelViewSet):
             "email":user.email, 
             "id":user.id, 
             "name":user.name,
-            "image": str(user.image)
+            "image": "http://localhost:8000/media/"+str(user.image)
             })
     
