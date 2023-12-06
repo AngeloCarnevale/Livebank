@@ -3,18 +3,11 @@ import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useAuthStore } from "../../stores/authStore";
 import { styles } from "./styles";
-import { MaterialIcons, AntDesign, Feather, Entypo } from "@expo/vector-icons";
+import { MaterialIcons, AntDesign, Feather, Entypo, FontAwesome5 } from "@expo/vector-icons";
 import { IAccount, NavigationProp } from "../../types";
 import { api } from "../../services/axios";
-import { useQuery } from "@tanstack/react-query";
-import type { IUser } from "../../types";
 
 const Home = () => {
-  
-  const {data: IUser, isLoading} = useQuery({
-    queryFn: () => getCurrentAccount(),
-    queryKey: ["account"]
-  })
   
   const [account, setAccount] = useState<IAccount>();
   const access = useAuthStore((state) => state.access);
@@ -27,26 +20,20 @@ const Home = () => {
   api.defaults.headers['Authorization'] = `Bearer ${access}`
 
   const setUserInfos = async () => {
-    const user = await api.post("/auth/get/")
+    const user = await api.get("/auth/")
       .then((data) => {
         setUser(data.data)
       });
   };
   const getCurrentAccount = async () => {
     const account = await api
-      .get(`/account/${user.id}`)
+      .get(`/account/`)
       .then((data) => setAccount(data.data));
   };
   useEffect(() => {
     setUserInfos();
     getCurrentAccount();
   }, []);
-
-  isLoading && (
-    <View>
-      <Text>Loading...</Text>
-    </View>
-  )
 
   return (
     <View style={styles.container}>
@@ -111,14 +98,17 @@ const Home = () => {
           <Text style={styles.buttonText}>Add money</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
-          <Feather
-            name="more-horizontal"
+        <TouchableOpacity 
+          style={styles.button}
+          onPress={() => navigation.navigate("loan")}
+        >
+          <FontAwesome5
+            name="money-check"
             size={30}
-            color="white"
+            color="lightgray"
             style={styles.iconButton}
           />
-          <Text style={styles.buttonText}>More</Text>
+          <Text style={styles.buttonText}>Loan</Text>
         </TouchableOpacity>
       </View>
     </View>

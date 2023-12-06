@@ -10,6 +10,7 @@ export interface IUser {
   id: number;
   name: string;
   email: string;
+  image: string | any;
 }
 export type TransationBlockProps = {
   value: string,
@@ -30,6 +31,7 @@ export type RootStackParamList = {
   sendMoney: any;
   profileSettings: any;
   addMoney: any;
+  loan: any;
 };
 
 export type Props = NativeStackScreenProps<RootStackParamList>;

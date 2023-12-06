@@ -6,6 +6,7 @@ import TabRoutes from "./tab.navigation";
 import SendMoney from "../screens/SendMoney";
 import ProfileSettings from "../screens/ProfileSettings";
 import AddMoney from "../screens/AddMoney";
+import Loan from "../screens/Loan";
 
 export default function StackRoutes() {
   const Stack = createNativeStackNavigator();
@@ -58,6 +59,18 @@ export default function StackRoutes() {
         component={ProfileSettings} 
         options={{
           headerTitle: 'Profile Settings',
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            fontWeight: '400',
+            fontSize: 13
+          }
+        }}
+      />
+      <Stack.Screen
+        name="loan"
+        component={Loan} 
+        options={{
+          headerTitle: 'Loan',
           headerTintColor: 'white',
           headerTitleStyle: {
             fontWeight: '400',

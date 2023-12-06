@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import ProfileOption from "../../components/ProfileOption";
@@ -17,7 +17,12 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
-        <FontAwesome name="user-circle" size={70} color="#c0c0c0" />
+        {!user.image ? 
+          <FontAwesome name="user-circle" size={70} color="#c0c0c0" /> : 
+          <>
+            <Image source={user.image} alt="Profile image"/>
+          </>}
+        
         <View style={styles.textContainer}>
           <Text style={styles.userName}>{user.name}</Text>
           <Text style={styles.email}>{user.email}</Text>

@@ -25,7 +25,7 @@ export default function SendMoney() {
 
   const sendMoney = async () => {
     const transaction = await api.post('/transaction/', bodyParameters, config)
-    .then((data)=> {
+    .then(()=> {
       Alert.alert("Success")
       navigation.goBack()
     }).catch(() => Alert.alert("You do not have enough balance"))
@@ -35,7 +35,7 @@ export default function SendMoney() {
     <View style={styles.container}>
       <View>
         <Text style={styles.labelAccountNumber}>Enter with account number</Text>
-        <TextInput style={styles.textInput} onChangeText={(e) => setRecipient(e)}/>
+        <TextInput style={styles.textInput} onChangeText={(e) => setRecipient(e)} placeholder='Example: 1'/>
       </View>
       <View style={styles.mid}>
         <Text style={styles.amountLabel}>Enter with amount</Text>

@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   textInput: {
-    backgroundColor: '#a0a0a0'
+    backgroundColor: '#f0f0f0',
+    borderRadius: 7
   }, 
   labelAccountNumber: {
     color: '#fff',

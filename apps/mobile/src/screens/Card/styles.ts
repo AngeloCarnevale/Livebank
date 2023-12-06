@@ -3,11 +3,10 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
     backgroundColor: "#0d0d0d",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    gap: 90,
+    width: '100%',
+    height: '100%'
   },
   button: {
     backgroundColor: '#FFE071',
@@ -17,5 +16,8 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     fontWeight: 'bold'
-  }
+  },
+  cardContainer: {
+    marginTop: 100,
+  },
 });

@@ -22,12 +22,17 @@ export const styles = StyleSheet.create({
     color: '#c0c0c0'
   },
   amountInput: {
-    color: '#d0d0d0'
+    color: '#d0d0d0',
+    textAlign: 'center'
   },
   sendButton: {
     backgroundColor: '#FFE071',
+    borderRadius: 5,
+    padding: 5,
+    
   }, 
   sendText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold',
   }
 });

@@ -28,6 +28,11 @@ export default function LoginForm() {
         navigation.navigate("tabRoutes");
       })
       .catch((e) => {
+        
+        if(String(e).includes("429")) {
+          Alert.alert("Login attempt limit exceeded, please try again in a few seconds")
+          return null
+        }
         console.log(e);
         Alert.alert("Login Error");
       });
