@@ -1,28 +1,73 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import { styles } from "./styles";
-import { FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import ProfileOption from "../../components/ProfileOption";
 import { useAuthStore } from "../../stores/authStore";
-import { NavigationProp } from "../../types";
 import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from 'expo-image-picker'
+import { useEffect, useState } from "react";
+import { api } from "../../services/axios";
+import { BASE_URL } from "../../services/axios";
 
 const Profile = () => {
-  const access = useAuthStore((state) => state.access);
   const user = useAuthStore((state) => state.user)
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation();
+  const [selectedImage, setSelectedImage] = useState("")
   const signOut = () => {
-    
+
   };
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+
+    if (result.assets != null) {
+      setSelectedImage(result.assets[0].uri)
+    }
+  };
+  console.log(selectedImage)
+
+  const handleUpdatePic = async () => {
+    const formData = new FormData();
+    formData.append("image", {
+      uri: selectedImage,
+      name: "photo.jpg",
+      type: "image/jpg",
+    });
+    await api
+      .patch(`/auth/${user.id}/`, formData)
+      .then((response) => {
+        console.log("Image uploaded successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error uploading image:", error.toJSON());
+      });
+  };
+
+  useEffect(() => {
+    if (selectedImage) {
+      handleUpdatePic()
+    }
+  }, [selectedImage])
 
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
-        {!user.image ? 
-          <FontAwesome name="user-circle" size={70} color="#c0c0c0" /> : 
-          <>
-            <Image source={user.image} alt="Profile image"/>
-          </>}
-        
+
+        {!user.image && (
+          <Pressable onPress={pickImage}>
+            <FontAwesome5 name="user-circle" size={70} color="#c0c0c0" />
+          </Pressable>
+        )}
+        {user.image && (
+          <Pressable onPress={pickImage}>
+            <Image source={{ uri: `${BASE_URL}/media/${user.image}` }} alt="Profile image" width={100} height={100} />
+          </Pressable>
+        )}
         <View style={styles.textContainer}>
           <Text style={styles.userName}>{user.name}</Text>
           <Text style={styles.email}>{user.email}</Text>
@@ -44,7 +89,7 @@ const Profile = () => {
             />
           }
           text="Profile Settings"
-          onPress={()=> navigation.navigate("profileSettings")}
+          onPress={() => navigation.navigate("profileSettings")}
         />
 
         <ProfileOption

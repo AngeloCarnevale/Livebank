@@ -62,7 +62,7 @@ export default function TabRoutes() {
               color="white"
             />
           ),
-          tabBarLabel: "Transiction",
+          tabBarLabel: "Transaction",
         }}
       />
       <Tab.Screen

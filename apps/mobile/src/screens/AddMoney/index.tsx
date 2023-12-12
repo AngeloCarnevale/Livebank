@@ -1,8 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { styles } from './styles'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { API_URL } from '@env'
 import { useAuthStore } from '../../stores/authStore'
 import { IAccount } from '../../types'
 import { useNavigation } from "@react-navigation/native";
@@ -39,15 +37,13 @@ const AddMoney = () => {
             .then(() => {
                 Alert.alert("Success")
                 setValue("")
+                navigation.goBack()
             })
             .catch(e => Alert.alert(e))
     }
 
     return (
         <View style={styles.container}>
-            <View>
-
-            </View>
             <View>
                 <TextInput
                     placeholder='Enter your amount'

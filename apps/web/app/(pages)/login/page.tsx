@@ -15,16 +15,15 @@ export default function Login() {
   const router = useRouter()
   const toast = useToast()
 
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    
+
     try {
       const response = await signIn('credentials', {
         redirect: false,
-        email,
-        password
+        email: email,
+        password: password
       }).catch((error) => {
         console.log("erro: ", error)
       })
@@ -35,13 +34,12 @@ export default function Login() {
           title: "Login success",
           position: 'bottom'
         })
-        router.refresh()
+        router.refresh()  
         router.push('/profile')
       }
       return response
-
     }
-    catch{
+    catch {
       console.log("Erro")
     }
     finally {
@@ -81,7 +79,6 @@ export default function Login() {
                 />
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
@@ -100,7 +97,6 @@ export default function Login() {
                 />
               </div>
             </div>
-
             <div className='flex justify-center'>
               {loading ?
                 <Spinner
@@ -114,7 +110,6 @@ export default function Login() {
                   Sign in
                 </button>
               }
-
             </div>
           </form>
 

@@ -1,7 +1,7 @@
 import NextAuth from "next-auth/next";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import axios from "axios";
+import { api } from "../../../../services/api";
 
 
 const authOptions: NextAuthOptions = {
@@ -14,7 +14,7 @@ const authOptions: NextAuthOptions = {
                 password: { label: 'Password', type: 'password' }
             },
             async authorize(credentials) {
-                const user = await axios.post('http://127.0.0.1:8000/auth/login', {
+                const user = await api.post('/auth/login', {
                     email: credentials?.email,
                     password: credentials?.password
                 }).then(data => { return data.data }).catch((e) => console.log(e))

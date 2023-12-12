@@ -6,12 +6,12 @@ import { useEffect, useState } from 'react'
 import { api } from '../../../services/api'
 import { FaUser } from "react-icons/fa";
 import { getSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export default function Profile() {
   const [data, setData] = useState<IAccount>()
   const [user, setUser] = useState<IUser>()
-
+  const router = useRouter()
 
   async function handleUploadPic(event) {
     const token = await getSession()
@@ -23,14 +23,14 @@ export default function Profile() {
     api.patch(`/auth/${user?.id}/`, formData)
       .then((response) => console.log(response))
       .catch(error => console.log(error))
-
       getUser()
   }
 
   async function getUser() {
     const token = await getSession()
     if(!token) {
-      redirect('/login')
+      router.refresh()
+      router.push('/login')
     }
     api.defaults.headers['Authorization'] = `Bearer ${token?.access}`
     const response = await api.get('/auth/')
@@ -44,19 +44,17 @@ export default function Profile() {
     getUser()
   }, [])
   
-
   return (
     <>
       <Header />
       <div className='flex flex-col gap-10 justify-center items-center h-[60%]'>
         {!user?.image ?
-
           <div className='rounded-full border-2  p-10'>
             <FaUser color='gray' size={30} />
           </div>
           :
           <div className='border rounded-full'>
-            <img src={user.image} alt='Profile image' className='rounded-full' width={150}/>
+            <img src={`http://localhost:8000/media/${user.image}`} alt='Profile image' className='rounded-full' width={150}/>
           </div>}
         <input
           type='file'
